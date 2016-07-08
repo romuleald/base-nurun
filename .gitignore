@@ -1,4 +1,3 @@
-.idea/
 .tmp/
 .map
 
@@ -16,3 +15,23 @@ styles/*.css
 
 .DS_Store
 *Thumbs.db
+
+# IDE settings
+.buildpath
+.externalToolBuilders/
+.project
+.settings/
+.idea
+
+#sf2 folders to exclude
+/server/web/bundles/
+/server/web/uploads/
+/server/app/bootstrap.php.cache
+/server/app/cache/*
+/server/app/config/parameters.yml
+/server/app/logs/*
+/server/build/
+/server/vendor/
+/server/bin/
+/server/composer.phar
+/server/.apdisk
