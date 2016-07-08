@@ -1,2 +1,0 @@
-# flush symfony cache folder nightly
-30 04 * * * cd /var/www/front.base.twig && rm -rf app/cache/dev

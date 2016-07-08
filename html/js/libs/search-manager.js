@@ -1,7 +1,6 @@
 /**
  * init
  */
-var m73 = require("../modules/m-73").default;
 
 var searchmanager = (function () {
 
@@ -63,14 +62,14 @@ var searchmanager = (function () {
         }
     };
 
-    var close = function () {
-        if (!m73.isopen() && $header.find('input:focus').length === 0) {
-            if (isOpen) {
-                $mask.trigger('click');
-            }
-            isOpen = false;
-        }
-    };
+    // var close = function () {
+    //     if (!m73.isopen() && $header.find('input:focus').length === 0) {
+    //         if (isOpen) {
+    //             $mask.trigger('click');
+    //         }
+    //         isOpen = false;
+    //     }
+    // };
     var closeSearchTimed = function () {
         setTimeout(close, 200);
     };
