@@ -10,4 +10,15 @@
 *~
 
 node_modules
-npm-debug.log
+npm-debug.log#sf2 folders to exclude
+/server/web/bundles/
+/server/web/uploads/
+/server/app/bootstrap.php.cache
+/server/app/cache/*
+/server/app/config/parameters.yml
+/server/app/logs/*
+/server/build/
+/server/vendor/
+/server/bin/
+/server/composer.phar
+/server/.apdisk
