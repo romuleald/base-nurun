@@ -1,0 +1,13 @@
+.set-25 {
+    .block-title {
+        font-weight: 400 !important;
+        &:before {
+            border: none;
+        }
+    }
+
+    .inner-filter {
+        margin-bottom: 80px;
+    }
+}
+

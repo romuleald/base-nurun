@@ -1,0 +1,74 @@
+{
+  "datas": {
+    "suggest": {
+      "elements": [
+        {
+          "label": "thermostat d'ambiance",
+          "href": "page.php"
+        },
+        {
+          "label": "ecovariateur",
+          "href": "page.php"
+        },
+        {
+          "label": "interrupteur va-et-viens",
+          "href": "page.php"
+        },
+        {
+          "label": "interrupteur pour volets roulants, stores, fenêtres de toit",
+          "href": "page.php"
+        },
+        {
+          "label": "prise de courant associée à une prise multimédia",
+          "href": "page.php"
+        },
+        {
+          "label": "double prise de courant associé à un double chargeur usb",
+          "href": "page.php"
+        },
+        {
+          "label": "interscénario radio",
+          "href": "page.php"
+        },
+        {
+          "label": "interrupteur 4 scénarios",
+          "href": "page.php"
+        }
+      ]
+    },
+    "suggestPublic": {
+      "elements": [
+        {
+          "label": "interrupteur 4 scénarios",
+          "range": "céliane",
+          "media": "img/data/completion/product-01.jpg",
+          "href": "page.php"
+        },
+        {
+          "label": "interrupteur va-et-viens",
+          "range": "céliane",
+          "media": "img/data/completion/product-01.jpg",
+          "href": "page.php"
+        }
+      ]
+    },
+    "suggestPro": {
+      "elements": [
+        {
+          "label": "interrupteur 4 scénarios",
+          "range": "céliane",
+          "ref": "0 670 53",
+          "media": "img/data/completion/product-01.jpg",
+          "href": "page.php"
+        },
+        {
+          "label": "interrupteur",
+          "range": "céliane",
+          "ref": "0 670 53",
+          "media": "img/data/completion/product-01.jpg",
+          "href": "page.php"
+        }
+      ]
+    }
+  }
+}

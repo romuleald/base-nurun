@@ -1,0 +1,58 @@
+<script>
+    var jsonendpoint = {
+        suggest: {
+            url: 'services/suggest.json',
+            method: 'get',
+            limit: {
+                m: {
+                    nk: 3,
+                    ncp: 3,
+                    npp: 3
+                },
+                d: {
+                    nk: 9,
+                    ncp: 4,
+                    npp: 4
+                }
+            }
+        },
+        history: {
+            url: 'services/history.json',
+            method: 'get'
+        },
+        wishlistdetail: {
+            url: 'services/wishlist/detail.json',
+            method: 'get'
+        },
+        wishlistexport: {
+            url: 'services/wishlist/export.json',
+            method: 'get'
+        },
+        wishlistimport: {
+            url: 'services/wishlist/to_json.json',
+            method: 'post',
+            contentType: false,
+            processData: false
+        },
+        wishlistprint: {
+            url: 'services/wishlist/print.json',
+            method: 'get'
+        },
+        wishlisttechfile: {
+            url: 'services/wishlist/technical_file.json',
+            method: 'get'
+        }
+    };
+    var captchsitekey = '6Lc8ZSQTAAAAAOhsl8rr4mG3_BMI8TgFS_8BwXeP';
+
+</script>
+<script src="scripts/vendors.min.js"></script>
+<script src="scripts/bundle.js"></script>
+<script>
+    // only for debug
+    $.get('inc/debug.last-modified.php').promise().done(function (r) {
+        var buildTime = r * 1000;
+        var now = new Date().getTime();
+        console.info('last build', (now - buildTime) / 1000, 'seconds ago');
+    })
+</script>

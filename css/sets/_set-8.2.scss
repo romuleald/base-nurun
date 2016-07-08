@@ -1,0 +1,71 @@
+.set-8-2 {
+    position: relative;
+    overflow: hidden;
+
+    .m-07 {
+        position: relative;
+        @include mq($from: mobile) {
+            float: left;
+            padding-right: 20px;
+            width: (100% / 3);
+            z-index: 2;
+            .content {
+                margin-bottom: 0;
+            }
+        }
+    }
+
+    .m-08 {
+        margin-top: -20px;
+        margin-left: 20px;
+        @include mq($from: mobile) {
+            width: ((100% / 3) * 2);
+            float: left;
+            margin-top: 0;
+            margin-left: 0;
+        }
+
+        .content-inner {
+            position: static;
+        }
+
+        .block-legend {
+            margin-top: 6px;
+        }
+
+        .owl-carousel {
+            position: static;
+
+            .owl-item {
+                padding-right: 20px;
+            }
+        }
+    }
+
+    .slider-nav {
+        width: 90%;
+        .owl-stage-outer {
+            overflow: visible;
+        }
+
+        .owl-nav {
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            margin-bottom: 20px;
+            margin-right: 20px;
+            display: none;
+
+            @include mq($from: mobile) {
+                display: block;
+            }
+        }
+    }
+
+    .owl-carousel.dots-mobile {
+        .owl-dots {
+            border-top: none;
+        }
+    }
+}
+

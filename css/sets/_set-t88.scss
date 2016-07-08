@@ -1,0 +1,13 @@
+.set-t88 {
+    background-color: $color-background-light;
+    @include mq($from: mobile) {
+        background-color: $color-white;
+    }
+    .reco-customer {
+        margin-top: 0;
+        @include mq($from: mobile) {
+            margin-top: -25px;
+        }
+    }
+
+}

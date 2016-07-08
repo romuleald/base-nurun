@@ -1,0 +1,88 @@
+@mixin css-border-arrow($dir, $fullborder, $size, $bordersize, $color, $bordercolor) {
+    $border_position_color: '';
+    $margin_position: 'left';
+    $absoluteXposition: 'left';
+    $absoluteYposition: 'top';
+    $Xposition: 50%;
+    $Yposition: 50%;
+    $borderarrowsize: $size + $bordersize + 0;
+    $marginborderarrowsize: $size + $bordersize + 0;
+    $marginsize: $size;
+    @if $dir == 'top' {
+        $border_position_color: 'bottom';
+        $absoluteYposition: 'bottom';
+        $Yposition: 100%;
+    }
+    @if $dir == 'bottom' {
+        $border_position_color: 'top';
+        $Yposition: 100%;
+    }
+    @if $dir == 'right' {
+        $border_position_color: 'left';
+        $margin_position: 'top';
+        $Xposition: 100%;
+    }
+    @if $dir == 'left' {
+        $border_position_color: 'right';
+        $margin_position: 'top';
+        $absoluteXposition: 'right';
+        $Xposition: 100%;
+    }
+    position: relative;
+    @if $fullborder == true {
+        background: $color;
+        border: #{$bordersize}px solid $bordercolor;
+    } @else {
+        $size: ($size);
+        $marginborderarrowsize: (($size*2) + ($bordersize*2)) / 0 + 0;
+    }
+
+    &:after, &:before {
+        border: solid transparent;
+        #{$absoluteXposition}: $Xposition;
+        #{$absoluteYposition}: $Yposition;
+        content: " ";
+        height: 0;
+        pointer-events: none;
+        position: absolute;
+        width: 0;
+    }
+    &:after {
+        border-color: transparent;
+        border-#{$border_position_color}-color: $color;
+        border-width: #{$size}px;
+        margin-#{$margin_position}: -#{$marginsize}px;
+    }
+    &:before {
+        border-color: transparent;
+        border-#{$border_position_color}-color: $bordercolor;
+        border-width: #{$borderarrowsize}px;
+        margin-#{$margin_position}: -#{$marginborderarrowsize}px;
+    }
+}
+
+@mixin css-arrow($dir, $size, $color) {
+    width: 0;
+    height: 0;
+    @if $dir == 'top' {
+        border-left: $size solid transparent;
+        border-right: $size solid transparent;
+        border-bottom: $size solid $color;
+    }
+    @if $dir == 'bottom' {
+        border-left: $size solid transparent;
+        border-right: $size solid transparent;
+        border-top: $size solid $color;
+    }
+    @if $dir == 'right' {
+        border-top: $size solid transparent;
+        border-bottom: $size solid transparent;
+        border-left: $size solid $color;
+    }
+    @if $dir == 'left' {
+        border-top: $size solid transparent;
+        border-bottom: $size solid transparent;
+        border-right: $size solid $color;
+    }
+}
+

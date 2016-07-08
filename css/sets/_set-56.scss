@@ -1,0 +1,11 @@
+.set-56 {
+    position: relative;
+    z-index: 5;
+    margin: -21px 20px 39px;
+
+    @include mq($from: mobile) {
+        margin: -34px 55px 55px;
+    }
+
+}
+

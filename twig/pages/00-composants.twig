@@ -1,0 +1,417 @@
+{% extends "layout/base-tpl.twig" %}
+
+{% block title %}Index{% endblock %}
+{% block head %}
+    {{ parent() }}
+    <style type="text/css">
+        .tac.title {
+            background: #231f20;
+            padding: 10px 0;
+            color: #fff;
+        }
+
+        hr {
+            border-color: #555555;
+            margin: 50px 0;
+        }
+
+        .doc-list {
+            box-shadow: 1px 1px 15px 0 rgba(0, 0, 0, 0.1);
+            padding: 20px;
+        }
+
+        .doc-list li {
+            margin: 15px 0;
+        }
+
+        .doc-list h3 {
+            margin: 0 0 10px 0;
+        }
+
+        .grid-exemple .grid-center {
+            background: lightcyan;
+        }
+
+        .accordion-item {
+            padding-right: 20px;
+            padding-left: 10px;
+            display: inline-block;
+        }
+
+        .square {
+            width: 75px;
+            height: 75px;
+            margin-right: 20px;
+            float: left;
+        }
+    </style>
+
+{% endblock %}
+{% block content %}
+
+    <div class="main-container">
+        <?php echo generateAllBlocksTitle('Début du site'); ?>
+
+        <div class="section section-small">
+            <div class="section-inner">
+                <div class="section-content">
+
+                    <h2>Breadcrumb:</h2>
+                     {{ bread.crumb(["kikoo", "lol"]) }}
+                    <h1 class="tac title">Typography</h1>
+
+                    <h2>Polices de caractères&nbsp;:</h2>
+
+                    <ul class="doc-list">
+                        <li class="Roboto-Thin mtm mbm">Roboto-Thin <span>Weight 100</span></li>
+                        <li class="Roboto-Light mtm mbm">Roboto-Light <span>Weight 300</span></li>
+                        <li class="Roboto-Regular mtm mbm">Roboto-Regular <span>Weight 400</span></li>
+                        <li class="Roboto-Medium mtm mbm">Roboto-Medium <span>Weight 500</span></li>
+                        <li class="Roboto-Bold mtm mbm">Roboto-Bold <span>Weight 700</span></li>
+                    </ul>
+
+                    <h2>desktop/tablette</h2>
+
+                    <ul class="doc-list">
+                        <!-- TITLE -->
+                        <li class="txt-title-b-1">.title Roboto bold 13px</li>
+                        <li class="txt-title-r-1">.title Roboto Regular 17px/25px</li>
+                        <li class="txt-title-l-2">.title Roboto Light 27px/32px</li>
+                        <li class="txt-title-l-1">.title Roboto Light 40px/47px</li>
+                        <!--END TITLE -->
+
+                        <!-- TEXT -->
+                        <li class="text-b-1">.text Roboto Bold 11px</li>
+                        <li class="text-b-2">.text Roboto Bold 12px</li>
+                        <li class="text-b-3">.text Roboto Bold 11px/13px</li>
+                        <li class="text-b-4">.text Roboto Bold 15px/20px</li>
+
+                        <li class="text-m-1">.text Roboto Medium 12px</li>
+
+                        <li class="text-r-1">.text Roboto Regular 13px/18px</li>
+                        <li class="text-r-2">.text Roboto Regular 15px/22px</li>
+                        <li class="text-r-3">.text Roboto Regular 20px/27px</li>
+
+                        <li class="text-l-2">.text Roboto Light 35px/40px</li>
+                        <li class="text-l-3">.text Roboto Light 80px</li>
+
+                        <li class="text-t-1">.text Roboto Thin 47px/55px</li>
+                        <!-- FIN TEXT -->
+                    </ul>
+
+                    <h2>Utilisation</h2>
+                    <ul style="padding-left: 100px;">
+                        <li class="txt-title-dashed">Silver Economy Expo</li>
+                        <li class="txt-title-dashed">Le nouveau centre <br> Innoval Lyon</li>
+                        <li class="txt-title-dashed">Tout savoir sur <br> l’amendement 5 de <br> la NF C 15-100</li>
+                    </ul>
+
+                    <ul style="padding-left: 100px;">
+                        <li class="txt-title-dashed txt-title-dashed-large">Silver Economy Expo</li>
+                        <li class="txt-title-dashed txt-title-dashed-large">Le nouveau centre <br> Innoval Lyon</li>
+                        <li class="txt-title-dashed txt-title-dashed-large">Tout savoir sur <br> l’amendement 5 de <br> la
+                            NF C 15-100
+                        </li>
+                        <li class="title-dashed-w-desc">
+                            <h2 class="txt-title-dashed txt-title-dashed-large">Vous aimerez aussi</h2>
+                            <h3 class="text-r-2 title-dashed-desc">Choisissez le mode de formation qui vous correspond avec
+                                le XL PRO3
+                                400.</h3>
+                        </li>
+                    </ul>
+
+                    <hr>
+                    <h1 class="tac title">Color/Background</h1>
+
+                    <h2>TEXTE</h2>
+                    <ul class="line">
+                        <li class="left mrxxl color-legrand">color-legrand -> #ff9600</li>
+                        <li class="left mrxxl color-text-grey">color-text-grey -> #a0a0a0</li>
+                        <li class="left mrxxl color-black">color-black -> #202020</li>
+                        <li class="left mrxxl color-text-unactive">color-text-unactive -> #C7C7C7</li>
+                    </ul>
+
+                    <h2>BACKGROUND</h2>
+                    <ul class="line">
+                        <li class="square color-background-legrand">#ff9600</li>
+                        <li class="square color-background-light">#F3F2F1</li>
+                        <li class="square color-background-black">#202020</li>
+                        <li class="square color-background-dark">#393837</li>
+                    </ul>
+
+                    <div class="line">
+                        <div class="left">
+                            <h2>line/contour</h2>
+                            <ul class="line">
+                                <li class="left mrxxl color-border-block">color-border-block -> #e0e0e0</li>
+                            </ul>
+                        </div>
+                        <div class="left">
+                            <h2>traits de séparation</h2>
+                            <ul class="line">
+                                <li class="left mrxxl color-border-text">color-border-text -> #cccccc</li>
+                            </ul>
+                        </div>
+                        <div class="left">
+                            <h2>titres</h2>
+                            <ul class="line">
+                                <li class="left mrxxl color-line-title">color-line-title -> #707070</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="line">
+                        <div class="left">
+                            <h2>valide</h2>
+                            <ul class="line">
+                                <li class="left mrxxl color-form-valid">color-form-valid -> #5CB62F</li>
+                            </ul>
+                        </div>
+                        <div class="left">
+                            <h2>erreur</h2>
+                            <ul class="line">
+                                <li class="left mrxxl color-form-error">color-form-error -> #be2a2a</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <hr>
+                    <h1 class="tac title">Boutons/Liens</h1>
+                    <h2>sur fond blanc / gris clair</h2>
+
+                    <p class="mbxxl">
+                        <a href="#" class="btn btn-main" title="#">voir tout</a>
+                    <span>
+                        Texte #202020, Roboto, Bold, Capitale, 13pt, 100pt d’interlettrage
+                        Contour 1px #707070
+                    </span>
+                    </p>
+                    <p class="mbxxl">
+                        <a href="#" class="btn btn-medium" title="#">trouver un magasin</a>
+                    <span>
+                        Texte #202020, Roboto, Bold, Capitale, 12pt, 100pt d’interlettrage
+                        Contour 1px #707070
+                    </span>
+                    </p>
+
+                    <p class="mbxxl">
+                        <a href="#" class="btn btn-medium decli-reverse" title="#">trouver un magasin</a>
+                    <span>
+                        Texte #202020, Roboto, Bold, Capitale, 12pt, 100pt d’interlettrage
+                        Contour 1px #707070
+                    </span>
+                    </p>
+
+
+                    <div class="mbxxl color-background-legrand">
+                        <div class="ptxl pbxl plxl prxl dib">
+                            <a href="#" class="btn btn-main-full-reverse" title="#">testez-vous</a>
+                        </div>
+                    <span>
+                        Texte #fff, Roboto, Bold, Capitale,
+                        13pt, 100pt d’interlettrage
+                        Fond bouton #fff
+                    </span>
+                    </div>
+
+                    <p class="mbxxl">
+                        <a class="btn btn-medium decli" title="#">Accès pro
+                            <i class="icon-open-bracket thin-icon icon-end"></i>
+                        </a>
+                    </p>
+
+
+                    <h2>sur fond orange / gris clair</h2>
+                    <p class="mbxxl">
+                        <a href="#" class="btn btn-legrand" title="#">ajouter à ma liste</a>
+                    <span>
+                        Texte #fff, Roboto, Bold, Capitale, 12pt, 100pt d’interlettrage
+                        Fond bouton #ff9600
+                    </span>
+                    </p>
+
+                    <p class="mbxxl">
+                        <a href="#" class="btn btn-main-bg-orange" title="#">voir tout</a>
+                    <span>
+                        Texte #202020, Roboto, Bold, Capitale, 13pt, 100pt d’interlettrage
+                        Contour 1px #707070
+                    </span>
+                    </p>
+                    <div class="mbxxl color-background-legrand">
+                        <div class="ptxl pbxl plxl prxl dib">
+                            <a href="#" class="btn btn-main-full" title="#">testez-vous</a>
+                        </div>
+                    <span>
+                        Texte #fff, Roboto, Bold, Capitale,
+                        13pt, 100pt d’interlettrage
+                        Contour 1px #fff 60%
+                    </span>
+                    </div>
+
+                    <div class="mbxxl">
+                        <p class="btn-product-img-label text-b-1">Nouveauté</p>
+                    </div>
+                    <hr>
+                    <h1 class="tac title">éléments récurrents</h1>
+
+                    <div class="mbxxl">
+                        <p class="flag-new">Nouv<span class="item-1">.</span><span class="item-2">eauté</span></p>
+                    </div>
+
+                    <hr>
+                    <h1 class="tac title">pagination</h1>
+                    <p>En cas de changement de page via HREF</p>
+                    <p class="line tac">
+                        <a href="#prev" class="pagination prev inactive">
+                            <i class="icon-arrow-left thin-icon icon-item"></i>précédent
+                        </a>
+                        <a href="#next" class="pagination next">
+                            suivant<i class="icon-arrow-right thin-icon icon-item"></i>
+                        </a>
+                    </p>
+                    <p>En cas d'action JS</p>
+                    <p class="line tac">
+                    <span class="pagination prev inactive">
+                        <i class="icon-arrow-left thin-icon icon-item"></i>précédent
+                    </span>
+                    <span class="pagination next">
+                        suivant<i class="icon-arrow-right thin-icon icon-item"></i>
+                    </span>
+                    </p>
+
+                    <ul class="line tac block-pagination">
+                        <li class="pagination">
+                            <a href="#prev" class="pagination inactive">
+                                <i class="icon-arrow-left thin-icon icon-item"></i>
+                            </a>
+                        </li>
+                        <li class="pagination pages"><a href="#" class="active">1</a></li>
+                        <li class="pagination pages"><a href="#">2</a></li>
+                        <li class="pagination pages"><a href="#">3</a></li>
+                        <li class="pagination pages"><a href="#">...</a></li>
+                        <li class="pagination pages"><a href="#">6</a></li>
+                        <li class="pagination">
+                            <a href="#next" class="pagination">
+                                <i class="icon-arrow-right thin-icon icon-item"></i>
+                            </a>
+                        </li>
+                    </ul>
+
+                    <h1 class="tac title">read more</h1>
+                    <div class="tac">
+                        <a href="#" class="text-b-1 read-more">lire la
+                            suite<i class="icon-arrow-right thin-icon icon-item"></i></a>
+                    </div>
+                    <div class="tac">
+                        <a href="/" class="text-b-1 cta-advice">soyez le premier à donner votre
+                            avis<i class="icon-open-bracket thin-icon icon"></i></a>
+                        <h1 class="tac title">PICTO</h1>
+
+                        {{ icons.all() }}
+                        <p>
+                            {{ icons.ico('twitter', 'thin') }}
+                        </p>
+                    </div>
+
+                    <h1 class="tac title">Formulaire</h1>
+                    <form action="#" class="js-validateform"
+                          novalidate data-error-email="Email invalide"
+                          data-error-required="Champ requis"
+                          data-error-alpha="Contient des caractères autres que l'alphabet"
+                          data-error-number="Contient pas seulement que des des chiffres">
+                        <fieldset>
+                            <legend>Validation des champs</legend>
+                            <p class="form-item-wrapper">
+                                <label for="formtest1">form test 1 (required)</label>
+                                <input type="text" id="formtest1" required>
+                                <span class="js-form-text-label form-label-error"></span>
+                            </p>
+                            <p class="form-item-wrapper">
+                                <label for="formtest2">form test 2 (email)</label>
+                                <input type="text" class="js-valid-email" id="formtest2">
+                                <span class="js-form-text-label form-label-error"></span>
+                            </p>
+                            <p class="form-item-wrapper">
+                                <label for="formtest3">form test 3 (email required)</label>
+                                <input type="text" class="js-valid-email" id="formtest3" required>
+                                <span class="js-form-text-label form-label-error"></span>
+                            </p>
+                            <p class="form-item-wrapper">
+                                <label for="formtest3">form test 4 (alpha)</label>
+                                <input type="text" class="js-only-alpha" id="formtest3" required>
+                                <span class="js-form-text-label form-label-error"></span>
+                            </p>
+                            <p class="form-item-wrapper">
+                                <label for="formtest3">form test 4 (number)</label>
+                                <input type="text" class="js-only-number" id="formtest3" required>
+                                <span class="js-form-text-label form-label-error"></span>
+                            </p>
+                            <p>
+                                <label for="formtestsubmit" class="btn btn-main">
+                                    <input value="Valider" type="submit" id="formtestsubmit">
+                                </label>
+                            </p>
+                        </fieldset>
+                        <fieldset>
+                            <legend>cases à cocher</legend>
+                        </fieldset>
+                    </form>
+
+
+                    <h1 class="tac title">FAQ/dropdown</h1>
+                    <div class="container">
+                        <h2 class="hncl-title">
+                            <span class="hncl-tactile-toggle JS_toggler" data-toggler-id="1" data-toggler-group="question-1">
+                                <i class="icon-bottom-bracket thin-icon icon-item"></i>
+                            </span>
+                            <a href="#" class="link-item">J’ai besoin de la notice de câblage de mon produit Legrand</a>
+                        </h2>
+
+                        <p class="hncl-list JS_item_toggler" data-toggler-group="question-1" data-toggler-itemid="1">
+                            Le Lorem Ipsum est simplement du faux texte employé dans la composition et la mise en page
+                            avant impression. Le Lorem Ipsum est le faux texte standard de l'imprimerie depuis les
+                            années 1500, quand un peintre anonyme assembla ensemble des morceaux de texte pour réaliser
+                            un livre spécimen de polices de texte. Il n'a pas fait que </p>
+                    </div>
+                    <div class="container">
+                        <h2 class="hncl-title">
+                            <span class="hncl-tactile-toggle JS_toggler" data-toggler-id="2" data-toggler-group="question-2">
+                                <i class="icon-bottom-bracket thin-icon icon-item"></i>
+                            </span>
+                            <a href="#" class="link-item">J'ai un problème technique avec un produit Legrand. Comment
+                                faire une réclamation.</a>
+                        </h2>
+
+                        <div class="hncl-list JS_item_toggler" data-toggler-group="question-2" data-toggler-itemid="2">
+                            <p>Le Lorem Ipsum est simplement du faux texte employé dans la composition et la mise en
+                                page avant impression. Le Lorem Ipsum est le faux texte standard de l'imprimerie depuis
+                                les années 1500, quand un peintre anonyme assembla ensemble des morceaux de texte pour
+                                réaliser un livre spécimen de polices de texte. Il n'a pas fait que </p>
+                        </div>
+                    </div>
+                    <div class="container">
+                        <h2 class="hncl-title">
+                            <span class="hncl-tactile-toggle JS_toggler" data-toggler-id="3" data-toggler-group="question-3">
+                                <i class="icon-bottom-bracket thin-icon icon-item"></i>
+                            </span>
+                            <a href="#" class="link-item">Je cherche un showroom où me rendre pour découvrir les
+                                solutions Legrand.</a>
+                        </h2>
+
+                        <div class="hncl-list JS_item_toggler" data-toggler-group="question-3" data-toggler-itemid="3">
+                            <p>Le Lorem Ipsum est simplement du faux texte employé dans la composition et la mise en
+                                page avant impression. Le Lorem Ipsum est le faux texte standard de l'imprimerie depuis
+                                les années 1500, quand un peintre anonyme assembla ensemble des morceaux de texte pour
+                                réaliser un livre spécimen de polices de texte. Il n'a pas fait que </p>
+                        </div>
+                    </div>
+                    <div class="container">
+                        <span class="JS_toggler" data-toggler-id="popin1" data-toggler-group="popin">LOL</span>
+                        {{ popin.master('popin1', 'test', 'title', 'test') }}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

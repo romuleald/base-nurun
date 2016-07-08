@@ -1,0 +1,43 @@
+/* ==========================================================================
+   ACCORDION.SCSS
+   Styles for Accordion
+   ========================================================================== */
+.accordion-item {
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    padding: 1.2em 0;
+    cursor: pointer;
+    position: relative;
+    z-index: 1;
+    *zoom: 1;
+    .icon-arrow-down,
+    .icon-arrow-up {
+        position: absolute;
+        top: 39%;
+        right: 0;
+        font-size: 13px;
+    }
+    .icon-arrow-up {
+        display: none;
+    }
+    &.active {
+        .icon-arrow-up {
+            display: block;
+        }
+        .icon-arrow-down {
+            display: none;
+        }
+    }
+}
+
+.accordion-wrapper {
+    height: 0;
+    overflow: hidden;
+    // ie7 bug
+    position: relative;
+    *zoom: 1;
+    &.active {
+        height: auto;
+        //overflow: visible;
+    }
+}

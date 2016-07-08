@@ -1,0 +1,16 @@
+{% macro crumb(links) %}
+    <div class="breadcrumb">
+        <ul class="breadcrumb-list">
+            {% for item in links %}
+                <li class="list-item">
+                    {% if loop.last %}
+                        {{ item }}
+                    {% else %}
+                        <a href='#' class="list-item-link"><span>{{ item }}</span></a>
+                    {% endif %}
+                </li>
+            {% endfor %}
+        </ul>
+    </div>
+{% endmacro %}
+

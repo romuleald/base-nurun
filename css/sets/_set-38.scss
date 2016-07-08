@@ -1,0 +1,28 @@
+.set-38 {
+    border-top: solid 1px $color-border-block;
+    padding: 45px 20px;
+
+    &:last-child {
+        border-bottom: solid 1px $color-border-block;
+    }
+    &:first-child {
+        border-top: none;
+    }
+
+    @include mq($from: mobile) {
+        padding: 0;
+    }
+}
+.module-set-38 {
+    text-align: center;
+
+    @include mq($from: mobile) {
+        display: table;
+        width: 100%;
+        border-top: solid 1px $color-border-block;
+
+        &:first-child {
+            border: none;
+        }
+    }
+}

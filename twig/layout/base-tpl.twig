@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    {% spaceless %}
+        {% block head %}
+            {% if isprod %}
+                <link rel="stylesheet" href="styles/all.min.css">
+            {% else %}
+                <link rel="stylesheet" href="styles/all.css">
+            {% endif %}
+            <title>{% block title %}{% endblock %}</title>
+        {% endblock %}
+    {% endspaceless %}
+
+</head>
+<body>
+<div id="content">
+    {% spaceless %}
+        {% block header %}
+            {% include 'layout/header.twig' %}
+        {% endblock %}
+    {% endspaceless %}
+    {% import 'components/icons.twig' as icons %}
+    {% import 'layout/breadcrumb.twig' as bread %}
+    {% import 'blocks/popin-master.twig' as popin %}
+
+    {% block content %}{% endblock %}
+</div>
+
+{% spaceless %}
+    {% block footer %}
+        {% include 'layout/footer.twig' %}
+    {% endblock %}
+    {% block scripts %}
+        {% include 'layout/scripts.twig' %}
+    {% endblock %}
+    {% block debug %}
+        {% include 'layout/debug.twig' %}
+    {% endblock %}
+{% endspaceless %}
+</body>
+</html>

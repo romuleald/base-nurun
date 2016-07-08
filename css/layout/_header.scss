@@ -1,0 +1,19 @@
+header {
+
+    position: fixed;
+    height: 50px;
+    background: #C09853;
+    width: 100%;
+
+    display: flex;
+    justify-content: center;
+}
+
+.in-header {
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    max-width: $max-width;
+}

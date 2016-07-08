@@ -1,0 +1,16 @@
+.set-34 {
+    position: relative;
+    .breadcrumb {
+        left: 50px;
+        position: absolute;
+        top: 60px;
+        z-index: 10;
+        color: $color-white;
+
+        .list-item-link {
+            color: $color-white;
+            opacity: 0.5;
+        }
+    }
+}
+

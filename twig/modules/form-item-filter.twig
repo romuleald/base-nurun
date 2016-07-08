@@ -1,0 +1,5 @@
+{% set nameurl = name|url_encode %}
+<div class="form-item">
+    <input type="checkbox" id="{{ nameurl }}" name="{{ nameurl }}" class="form-checkbox" {% if request[nameurl] == 'on' %} checked {% endif %} {% if disabled %} disabled {% endif %}>
+    <label for="{{ nameurl }}" class="form-label">{{ name }}</label>
+</div>
