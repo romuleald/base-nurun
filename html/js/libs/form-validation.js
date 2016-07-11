@@ -159,7 +159,8 @@ var formmanager = (function () {
             if (elemError && firstError === false) {
                 firstError = true;
                 $element.trigger('focus').get(0).scrollIntoView();
-                $(window).scrollTop($(window).scrollTop() - $('#header').height());
+                var height = $('#header').height() || 0;
+                $(window).scrollTop($(window).scrollTop() - height);
             }
 
             $formItemParent.find('.js-form-text-label').html(elemError ? errorMessage : '');
@@ -174,7 +175,7 @@ var formmanager = (function () {
             $form.find('.msg-invalid').toggleClass('active');
 
             e.stopImmediatePropagation(); // kill any other event binding
-            return false
+            e.preventDefault();
         }
     };
 
