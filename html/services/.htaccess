@@ -1,8 +1,0 @@
-Options +FollowSymlinks
-RewriteEngine on
-RewriteRule history.json history.php [L]
-RewriteRule wishlist/detail.json wishlist/detail.php [L]
-RewriteRule wishlist/to_json.json wishlist/to_json.php [L]
-RewriteRule wishlist/print.json wishlist/print.php [L]
-RewriteRule wishlist/technical_file.json wishlist/technical_file.php [L]
-RewriteRule wishlist/export.json wishlist/export.php [L]
