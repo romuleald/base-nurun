@@ -34,6 +34,13 @@ var scrollto = require("../libs/scrollto").default;
     });
     $linkrte.on('click scrollto', scrollto);
 
-    //module
+    //module auto init
+    // just add .js-module to an HTML elem and a module name that will match a file in "modules" folder and it will work
+    // <h2 class="js-module" data-module="test">desktop/tablette</h2>
+    $('.js-module').each(function () {
+        var _class = $(this).attr('data-module');
+        require('../modules/' + _class).default.init(this);
+    });
+
 
 })();
