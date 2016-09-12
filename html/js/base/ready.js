@@ -13,7 +13,6 @@ var scrollto = require("../libs/scrollto").default;
 
 (function () {
     pm.debug && console.log('jquery:document ready');
-    console.info('ready:file');
     header_manager.init();
     search_manager.init();
     slider_manager.init();

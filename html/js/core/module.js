@@ -26,7 +26,6 @@ var module = (function () {
     var parseModules = function ($modules, loadFlag = false) {
         let ready = [];
         let load = [];
-        console.info($modules);
         $modules.not('.' + SELECTOR).each(function () {
             var _class = $(this).attr('data-module');
             var _module = require('../modules/' + _class).default;
@@ -51,7 +50,6 @@ var module = (function () {
      */
     var exec = function (modules, flag = false) {
         modules.forEach(function (o) {
-            console.info(o);
             var module = o.module;
             if (module) {
                 module(o.elem);
