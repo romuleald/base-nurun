@@ -4,14 +4,19 @@
 
 var moduleTest = (function () {
 
-    var init = function (elem) {
+    var ready = function (elem) {
 
-        console.info(`le module test a été init via l'élément`, elem);
+        console.info(`le module test a été init au DOMReady via l'élément`, elem);
+
+    };
+    var load = function (elem) {
+        console.info(`le module test a été init au LOAD via l'élément`, elem);
 
     };
 
     return {
-        init: init
+        ready: ready,
+        load: load
     }
 
 })();

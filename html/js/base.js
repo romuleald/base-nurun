@@ -16,7 +16,13 @@ var w = window;
 window.pm = window.pm || {};
 pm.debug = /equesto|local|nextdeploy/.test(document.location.host) && typeof console != 'undefined';
 
+var module = require("./core/module").default;
+
+module.init();
+
+//other ready/load actions
 require('./base/ready.js');
 require('./base/load.js');
+
 
 /* END */
