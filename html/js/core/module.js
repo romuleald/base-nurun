@@ -28,9 +28,14 @@ var module = (function () {
         let load = [];
         $modules.not('.' + SELECTOR).each(function () {
             var _class = $(this).attr('data-module');
-            var _module = require('../modules/' + _class).default;
-            ready.push({module: _module.ready || _module.init, elem: this});
-            loadFlag && load.push({module: _module.load, elem: this});
+            try {
+                var _module = require('../modules/' + _class).default;
+                ready.push({module: _module.ready || _module.init, elem: this});
+                loadFlag && load.push({module: _module.load, elem: this});
+            }
+            catch (e) {
+                console.error('Module not foud', _class, this);
+            }
         });
         exec(ready, true);
 
