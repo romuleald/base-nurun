@@ -14,7 +14,7 @@ var module = (function () {
 
      <h2 class="js-module" data-module="test">desktop/tablette</h2>
 
-     each module can export a ready() and a load() function
+     each module can export a ready() (or init()) and a load() function
      */
 
     /**
@@ -29,7 +29,7 @@ var module = (function () {
         $modules.not('.' + SELECTOR).each(function () {
             var _class = $(this).attr('data-module');
             var _module = require('../modules/' + _class).default;
-            ready.push({module: _module.ready, elem: this});
+            ready.push({module: _module.ready || _module.init, elem: this});
             loadFlag && load.push({module: _module.load, elem: this});
         });
         exec(ready, true);

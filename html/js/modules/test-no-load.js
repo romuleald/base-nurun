@@ -13,12 +13,12 @@ var moduleTest = (function () {
             elem.insertAdjacentHTML('afterEnd', `<h2 class="js-module" data-module="test-no-load">Test no-load</h2>`);
             module.parse($('.js-module'));
 
-        })
+        });
 
     };
 
     return {
-        ready: ready
+        init: ready
     }
 
 })();
