@@ -1,65 +1,35 @@
 /* ==========================================================================
    COLORS.SCSS
-   Standard colors and classes
+   Colors definitions
    ========================================================================== */
-body {
-    //color: $color-brown;
-}
 
-a {
-    //  color: $color-brown;
-}
 
-/* generic colors */
-.color-white {
-       color: $color-white;//#ffffff
-}
-.color-legrand {
-       color: $color-legrand;//#FF9600
-}
-.color-black {
-    color: $color-black;//#202020
-}
+.bg-color-white { background-color: $color-white; }
 
-/* specific for text */
-.color-text-grey {
-       color: $color-text-grey;//#A0A0A0
-}
-.color-text-unactive {
-       color: $color-text-unactive;//#C7C7C7
-}
- /* classique background */
-.color-background-legrand{
-    background: $color-legrand;
-}
-.color-background-black{
-    background: $color-black;
-}
+.color-une { color: $color-une; }
+.bgcolor-une { background-color: $color-une; }
+.border-une { border-color: $color-une; }
 
-/* specific for background */
-.color-background-light {
-     background: $color-background-light;//F3F2F1
-}
-.color-background-dark {
-     background: $color-background-dark;//#393837
-}
+.color-kitchen { color: $color-kitchen; }
+.bgcolor-kitchen { background-color: $color-kitchen; }
+.border-kitchen { border-color: $color-kitchen; }
 
- /* color for forms */
-.color-form-error {
-       color: $color-form-error;//#BE2A2A
-}
-.color-form-valid {
-       color: $color-form-valid;//#5CB62F
-}
+.color-learn { color: $color-learn; }
+.bgcolor-learn { background-color: $color-learn; }
+.border-learn { border-color: $color-learn; }
 
-/* other colors */
+.color-play { color: $color-play; }
+.bgcolor-play { background-color: $color-play; }
+.border-play { border-color: $color-play; }
 
-.color-border-block {
-       color: $color-border-block;
-}
-.color-border-text {
-       color: $color-border-text;
-}
-.color-line-title {
-      color: $color-line-title;
-}
+.color-discover { color: $color-discover; }
+.bgcolor-discover { background-color: $color-discover; }
+.border-discover { border-color: $color-discover; }
+
+.color-imagine { color: $color-imagine; }
+.bgcolor-imagine { background-color: $color-imagine; }
+.border-imagine { border-color: $color-imagine; }
+
+.color-reduction { color: $color-reduction; }
+.bgcolor-reduction { background-color: $color-reduction; }
+.border-reduction { border-color: $color-reduction; }

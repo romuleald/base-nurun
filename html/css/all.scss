@@ -6,18 +6,35 @@
 ----------------------------------------------------------------------------- */
 $mq-responsive: true;
 
-@import "config/_variables";
-@import 'utils/all-utils';
+@import 'config/_variables';
+
 @import 'normalize'; // boilerplate
-//@import 'icons/style';
-@import 'debug';
-@import 'vendors/all-vendors'; // framework, OOCSS and more
-@import 'base/all-base';
-@import 'components/all-components';
-@import 'layout/all-layout'; // layout breaking points
-@import 'form/all-form';
-@import 'sections/all-sections';
-@import 'modules/all-modules';
-@import 'sets/all-sets';
+@import 'vendors/fw';
+//@import 'vendors/owl.carousel';
+
+@import 'utils/easings';
+@import 'utils/mediaqueries';
+@import 'utils/mixins';
+
 @import 'icons/style';
 
+// layout
+@import 'layout/columner';
+@import 'layout/content';
+@import 'layout/header';
+@import 'layout/footer';
+@import 'layout/menu';
+
+@import 'base/base';
+@import 'base/typography';
+@import 'base/colors';
+
+@import 'components/buttons';
+@import 'components/dropdown';
+//@import 'components/transformicon';
+//@import 'components/carousels';
+//@import 'components/spinner';
+
+@import 'form/form';
+
+//@import 'modules/m31_liste-rubrique.scss';

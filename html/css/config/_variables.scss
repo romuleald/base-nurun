@@ -4,82 +4,35 @@
 // ==========================================================================
 
 // Breaking points
-$breakpoint-medium: 10px;
-$breakpoint-large: 768px;
-$breakpoint-xlarge: 1024px;
+$breakpoint-medium: 768px;
+$breakpoint-large: 1024px;
+$breakpoint-xlarge: 1280px;
+$breakpoint-xxlarge: 1440px;
 
-$breakpoint-mobile: 10px;
-$breakpoint-tablet: 768px;
-$breakpoint-desktop: 1024px;
-$breakpoint-until-mobile: $breakpoint-mobile - 1;
+$breakpoint-mobile: 0px; // -> 639
+$breakpoint-tablet: 640px; // 640 -> 1023
+$breakpoint-desktop: 1024px; // 1024 ->
 $breakpoint-until-tablet: $breakpoint-tablet - 1;
 $breakpoint-until-desktop: $breakpoint-desktop - 1;
-$breakpoint-from-mobile: $breakpoint-mobile + 1;
-$breakpoint-from-tablet: $breakpoint-tablet + 1;
-$breakpoint-from-desktop: $breakpoint-desktop + 1;
-
-//general height
-$heightMenuMobile: 45px;
-$heightMenuDesktop: 79px;
-$heightMenuDesktopPro: 130px;
-$heightMenuMain: 51px; //sous menu pro
-
-// Colors
-
-//generic colors
-$color-legrand: #FF9600;
-$color-white: #FFF;
-$color-black: #202020;
-
-$colorProtection: #BC8952;
-$colorIndustrie: #519F6D;
-$colorResidentiel: #7C6DA6;
-$colorTertiaire: #5E67A8;
-
-$colorAgences:#00aa14;
-$colorShowrooms:#9a0049;
-
-
-//specific for text
-$color-text-grey: #A0A0A0;
-$color-text-unactive: #C7C7C7;
-
-//specific for background
-$color-background-light: #F3F2F1;
-$color-background-dark: #393837;
-$color-background-light-orange: #f4aa29;
-$color-background-dark-orange: #fa6d47;
-$color-background-white: #fff;
-
-//color for forms
-$color-form-error: #BE2A2A;
-$color-form-valid: #5CB62F;
-
-//other colors
-$color-border-block: #E0E0E0;
-$color-border-text: #CCC;
-$color-line-title: #707070;
-
-//margin and layout
-$colcount: 12;
-$colsize: 63;
-$gutter: 24px;
-$outgutter: 24px;
-$h-space-mobile: 20px;
-$h-big-space-mobile: 40px;
-$h-space-desktop: 55px;
-$h-big-space-desktop: 55px;
 
 $max-width: 1440px;
 
-// Font size
+// Colors
+$color-white: #fff;
+$color-background: #E7E8EF;
+$color-support: #AAA;
+$color-transverse: #000;
+$color-une: #415E92;
+$color-kitchen: #FC0;
+$color-learn: #FF6F00;
+$color-play: #86C5E8;
+$color-discover: #006633;
+$color-imagine: #8da205;
+$color-reduction: #E70000;
+
+// Typo
 $browser-context: 16;
 
-
-
-
-
-
-
-
-
+// dimensions and positions
+$sidenav_mobile_width: 265px;
+$sidenav_tablet_width: 200px;

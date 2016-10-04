@@ -1,187 +1,223 @@
 /* ==========================================================================
    BUTTONS.SCSS
    Styles for buttons.
-   Buttons can be on 2 lines in a fixed height, that's why there is a span
    ========================================================================== */
-
-.btn {
+// clears default styles to <button>
+// used in sidenav
+.clear-button-styles {
+    width: auto;
+    overflow: visible;
+    border: 0;
     background: none;
     cursor: pointer;
-    display: inline-block;
-    text-align: center;
-    text-decoration: none;
-    text-transform: uppercase;
-    transition: all 0.3s ease 0s;
-    @extend .Roboto-Bold;
-    letter-spacing: 0.1em;
-
-    input, button {
-        background: none;
-        border: none;
-        color: inherit;
-        font: inherit;
-        line-height: inherit;
-        margin: 0;
-        padding: 0;
-        text-transform: uppercase;
-        letter-spacing: 0.1em;
-    }
+    padding: 0;
 }
 
-.btn-locate-me {
+.link {
+    margin: 15px 0;
+    border-bottom: 1px solid transparent;
     display: inline-flex;
     align-items: center;
-    outline: none;
+
+    &:hover {
+        border-bottom: 1px solid $color-transverse;
+    }
 
     .icon {
-        margin-right: 10px;
+        line-height: 1;
+    }
+
+    .icon-right {
+        font-size: 11px;
+        height: 11px;
+        padding-right: 10px;
     }
 }
 
-button.btn:not(.btn-medium):not(.btn-main) {
-    border: none;
-    line-height: inherit;
+.link-1 {
+    font-size: 14px;
+    font-weight: 500;
+    text-transform: uppercase;
+    color: $color-transverse;
 }
 
-.btn-main {
-    color: $color-black;
-    font-size: pxtoem(13);
-    padding: 14px 40px;
-    border: 1px solid $color-line-title;
+.btn {
+    font-weight: bold;
+    text-transform: uppercase;
+    color: $color-transverse;
+    display: inline-flex;
+    align-items: center;
+    padding: 0 20px;
 
     &:hover {
-        background: $color-legrand;
-        color: $color-white;
-        border: 1px solid $color-legrand;
+        background-color: $color-transverse;
+        color: $color-white !important;
     }
 
-}
+    .mod-une &,
+    &.btn-une {
+        border-color: $color-une;
+        color: $color-une;
 
-.btn-main-bg-orange {
-    font-size: pxtoem(13);
-    padding: 14px 40px;
-    background: $color-legrand;
-    border: none;
-    color: $color-white;
-    &:hover {
-        background: $color-black;
-        color: $color-white;
-    }
-}
-
-.btn-main-decli {
-    color: $color-white;
-    border: 1px solid $color-white;
-
-    &:hover {
-        background: $color-white;
-        color: $color-black;
-        border: 1px solid $color-white;
-    }
-}
-
-.btn-main-reverse {
-    color: $color-black;
-    border: 1px solid $color-white;
-    background: $color-white;
-    &:hover {
-        background: $color-black;
-        color: $color-white;
-        border: 1px solid $color-black;
-    }
-}
-
-.btn-medium {
-    color: $color-black;
-    font-size: pxtoem(12);
-    padding: 5px 25px;
-    border: 1px solid $color-line-title;
-    position: relative;
-
-
-    @include mq($from: tablet) {
         &:hover {
-            background: $color-legrand;
-            color: $color-white;
-            border: 1px solid $color-legrand;
+            background-color: $color-une;
         }
     }
-    &.active &:not(mod-view){
-        background: $color-legrand;
-        color: $color-white;
-        border: 1px solid $color-legrand;
-    }
-    .icon-end {
-        position: absolute;
-        right: 5px;
-        top: 50%;
-        margin-top: -10px;
-    }
-    &.decli {
-        border: 1px solid $color-legrand;
+
+    .mod-kitchen &,
+    &.btn-kitchen {
+        border-color: $color-kitchen;
+        color: $color-kitchen;
+
         &:hover {
-            background: $color-black;
-            color: $color-white;
-            border: 1px solid $color-black;
+            background-color: $color-kitchen;
         }
     }
-    &.decli-reverse {
-        @include mq($from: tablet) {
+
+    .mod-learn &,
+    &.btn-learn {
+        border-color: $color-learn;
+        color: $color-learn;
+
+        &:hover {
+            background-color: $color-learn;
+        }
+    }
+
+    .mod-play &,
+    &.btn-play {
+        border-color: $color-play;
+        color: $color-play;
+
+        &:hover {
+            background-color: $color-play;
+        }
+    }
+
+    .mod-discover &,
+    &.btn-discover {
+        border-color: $color-discover;
+        color: $color-discover;
+
+        &:hover {
+            background-color: $color-discover;
+        }
+    }
+
+    .mod-imagine &,
+    &.btn-imagine {
+        border-color: $color-imagine;
+        color: $color-imagine;
+
+        &:hover {
+            background-color: $color-imagine;
+        }
+    }
+
+    .mod-reduction &,
+    &.btn-reduction {
+        border-color: $color-reduction;
+        color: $color-reduction;
+
+        &:hover {
+            background-color: $color-reduction;
+        }
+    }
+
+    &.btn-reversed {
+        border-color: $color-white;
+        color: $color-white;
+        background-color: transparent !important;
+
+        &:hover {
+            color: $color-transverse !important;
+            background-color: $color-white !important;
+        }
+
+        .mod-une &,
+        &.btn-une {
             &:hover {
-                background: $color-black;
-                color: $color-white;
-                border: 1px solid $color-black;
+                color: $color-une !important;
+            }
+        }
+
+        .mod-kitchen &,
+        &.btn-kitchen {
+            &:hover {
+                color: $color-kitchen !important;
+            }
+        }
+
+        .mod-learn &,
+        &.btn-learn {
+            &:hover {
+                color: $color-learn !important;
+            }
+        }
+
+        .mod-play &,
+        &.btn-play {
+            &:hover {
+                color: $color-play !important;
+            }
+        }
+
+        .mod-discover &,
+        &.btn-discover {
+            &:hover {
+                color: $color-discover !important;
+            }
+        }
+
+        .mod-imagine &,
+        &.btn-imagine {
+            &:hover {
+                color: $color-imagine !important;
+            }
+        }
+
+        .mod-reduction &,
+        &.btn-reduction {
+            &:hover {
+                color: $color-reduction !important;
             }
         }
     }
-}
 
-.btn-legrand {
-    color: $color-white;
-    background: $color-legrand;
-    font-size: pxtoem(12);
-    padding: 5px 25px;
-    &:hover {
-        background: $color-black;
-        color: $color-white;
+    .icon {
+        font-size: 11px;
+        line-height: 1;
+    }
+
+    .icon-right {
+        margin-left: 10px;
     }
 }
 
-.btn-main-full {
-    color: $color-white;
-    font-size: pxtoem(13);
-    padding: 14px 40px;
-    border: 1px solid rgba(255, 255, 255, 0.6);
-
-    &:hover {
-        background: $color-white;
-        color: $color-black;
-    }
+.btn-1 {
+    font-size: 14px;
+    border: 2px solid $color-transverse;
+    color: $color-transverse;
+    line-height: 32px;
 }
 
-.btn-main-full-reverse {
-    color: $color-black;
+.btn-2 {
+    font-size: 16px;
     background: $color-white;
-    font-size: pxtoem(13);
-    padding: 14px 40px;
+    padding-top: 10px;
+    padding-bottom: 10px;
 
-    &:hover {
-        background: $color-black;
-        color: $color-white;
+    .icon-right {
+        margin-left: 10px;
+        font-size: 12px;
+    }
+    @media screen and (min-width: $breakpoint-tablet) {
+        font-size: 22px;
+        padding-top: 20px;
+        padding-bottom: 20px;
+
+        .icon-right {
+            font-size: 20px;
+        }
     }
 }
-
-.btn-product-img-label {
-    color: $color-white;
-    background: $color-legrand;
-    font-size: pxtoem(12);
-    padding: 5px 10px;
-    @include mq($until: mobile) {
-        padding: 5px;
-    }
-    text-transform: uppercase;
-    display: inline-block;
-
-}
-
-

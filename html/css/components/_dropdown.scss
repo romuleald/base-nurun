@@ -1,0 +1,83 @@
+/* ==========================================================================
+   DROPDOWN.SCSS
+   Styles for dropdown.
+   ========================================================================== */
+
+.dropdown {
+    display: inline-block;
+    position: relative;
+}
+
+.dropdown-title {
+    cursor: pointer;
+    display: block;
+    padding: 0 5px;
+    //color: $color-brown;
+    &:after {
+        //color: $color-grey-dark;
+        content: "\e604";
+        display: inline-block;
+        font-family: 'icons';
+        font-size: 4px;
+        margin-left: 6px;
+        vertical-align: middle;
+    }
+    &:hover {
+        //color: $color-golden;
+    }
+}
+
+.dropdown-list {
+    background: #FFF;
+    border: solid 1px transparent;
+    opacity: 0;
+    padding: 16px 20px;
+    position: absolute;
+    //right: 0;
+    height: auto;
+    text-align: left;
+    transition: visibility 125ms ease-out 50ms, opacity 125ms ease-out 50ms, border-top 125ms ease-out 50ms, border-right 125ms ease-out 0ms, border-bottom 125ms ease-out 50ms, border-left 125ms ease-out 0ms;
+    visibility: hidden;
+    z-index: 2;
+}
+
+.dropleft .dropdown-list {
+    left: 0;
+    right: auto;
+}
+
+.dropdown-item {
+    margin: 6px 8px;
+    //color: $color-grey;
+    transition: all 125ms ease-out 450ms;
+    a {
+        color: inherit;
+        white-space: nowrap;
+        &:hover {
+            //color: $color-brown;
+        }
+    }
+    &.active {
+        //color: $color-golden;
+    }
+}
+
+.dropdown {
+    .active.dropdown-title {
+        //color: $color-golden;
+        &:after {
+            transform: rotate(180deg);
+        }
+    }
+    .active.dropdown-list {
+        //border: solid 1px $color-grey;
+        opacity: 1;
+        transition: visibility 125ms ease-out, opacity 125ms ease-out, border-top 125ms ease-out 50ms, border-right 125ms ease-out 125ms, border-bottom 125ms ease-out 200ms, border-left 125ms ease-out 275ms;
+        visibility: visible;
+        z-index: 3;
+    }
+    .active .dropdown-item {
+        margin: 9px 8px;
+        transition: margin 125ms ease-out, opacity 125ms ease-out 200ms;
+    }
+}

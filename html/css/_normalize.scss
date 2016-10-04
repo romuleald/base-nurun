@@ -46,20 +46,6 @@ body {
     padding: 0;
 }
 
-/* ==========================================================================
-   Links
-   ========================================================================== */
-
-/**
- * Address `outline` inconsistency between Chrome and other browsers.
- */
-
-a:focus,
-a:active,
-a:hover {
-    outline: 0;
-}
-
 p,
 dd,
 dl,
@@ -113,7 +99,7 @@ button,
 html input[type="button"], /* 1 */
 input[type="reset"],
 input[type="submit"] {
-    -webkit-appearance: button; /* 2 */
+    //-webkit-appearance: button; /* 2 */
     cursor: pointer; /* 3 */
     *overflow: visible;  /* 4 */
 }
@@ -127,3 +113,15 @@ html input[disabled] {
     cursor: default;
 }
 
+
+button {
+    width:auto;
+    overflow:visible;
+    border:0;
+    background:none;
+    cursor:pointer;
+}
+button::-moz-focus-inner { /*firefox extra padding removed*/
+    border: 0;
+    padding: 0;
+}
