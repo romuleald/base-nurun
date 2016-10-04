@@ -1,0 +1,57 @@
+{% extends "layout/base-tpl.twig" %}
+
+{% block title %}Index{% endblock %}
+{% block head %}
+    {{ parent() }}
+    <style type="text/css">
+        .tac.title {
+            background: #231f20;
+            padding: 10px 0;
+            color: #fff;
+        }
+
+        hr {
+            border-color: #555555;
+            margin: 50px 0;
+        }
+
+        .doc-list {
+            box-shadow: 1px 1px 15px 0 rgba(0, 0, 0, 0.1);
+            padding: 20px;
+        }
+
+        .doc-list li {
+            margin: 15px 0;
+        }
+
+        .doc-list h3 {
+            margin: 0 0 10px 0;
+        }
+
+        .grid-exemple .grid-center {
+            background: lightcyan;
+        }
+
+        .accordion-item {
+            padding-right: 20px;
+            padding-left: 10px;
+            display: inline-block;
+        }
+
+        .square {
+            width: 75px;
+            height: 75px;
+            margin-right: 20px;
+            float: left;
+        }
+    </style>
+
+{% endblock %}
+{% block content %}
+
+    <div class="main-container">
+        <?php echo generateAllBlocksTitle('Début du site'); ?>
+        vide
+    </div>
+
+{% endblock %}
