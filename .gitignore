@@ -10,8 +10,8 @@ npm-debug.log
 
 /scripts/
 html/scripts
-styles/*.map
-styles/*.css
+html/styles/*.map
+html/styles/*.css
 
 .DS_Store
 *Thumbs.db
