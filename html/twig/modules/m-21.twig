@@ -16,13 +16,13 @@
         <span class="product-list js-switch-list"><i class="icon-list-empty thin-icon {{ cookMoz }}"></i></span>
 
         <div class="filter-btn">
-            <span class="btn btn-main JS_toggler sortby-button" data-toggler-id="{{ id }}" data-toggler-group="tab-item-select">trier</span>
+            <span class="btn btn-main js-toggler sortby-button" data-toggler-id="{{ id }}" data-toggler-group="tab-item-select">trier</span>
 
-            <span class="btn btn-main JS_toggler filter-button" data-toggler-id="{{ id }}" data-toggler-group="products-filters">filtrer</span>
+            <span class="btn btn-main js-toggler filter-button" data-toggler-id="{{ id }}" data-toggler-group="products-filters">filtrer</span>
         </div>
 
         <div class="inner-wrapper">
-            <div class="accordion-wrapper JS_item_toggler" data-toggler-itemid="{{ id }}" data-toggler-group="tab-item-select">
+            <div class="accordion-wrapper js-item-toggler" data-toggler-itemid="{{ id }}" data-toggler-group="tab-item-select">
                 <div class="block-select">
                     <p class="js-filter-sort block-value {% if sortby == 'value1' %}active{% endif %}" data-value="value1" data-onchange="filterNavigation">pertinence</p>
                     <p class="js-filter-sort block-value {% if sortby == 'value2' %}active{% endif %}" data-value="value2" data-onchange="filterNavigation">prix croissant</p>

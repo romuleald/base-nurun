@@ -35,7 +35,7 @@ var headermanager = (function () {
 
         $trigger.trigger('focus');
         openState = false;
-        $header.find('.JS_toggler.active').trigger('close');
+        $header.find('.js-toggler.active').trigger('close');
     };
 
     var toggle = function () {
@@ -58,7 +58,7 @@ var headermanager = (function () {
         $trigger.on('click', toggle);
 
         //todo to refactor: manage the CSSCLASS when sub header is open or not
-        var $root = $header.find('.JS_item_toggler[data-toggler-group="header"]');
+        var $root = $header.find('.js-item-toggler[data-toggler-group="header"]');
 
         // ferme les menus et sous menus au resize
         var TIMEOUTresize = 0;

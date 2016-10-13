@@ -4,15 +4,15 @@
     {% for colortheme, level1 in menu %}
         {% for keylevel1, level2 in level1 %}
             <li class="menu-item {% if currentItem == toggle_index_lvl1 %}current{% endif %} level-1 color-theme-{{ colortheme | lower | remove_accent }}">
-                <div class="menu-item-wrapper menu-item-wrapper-lvl-1 JS_toggler" data-toggler-group="menu-level-2"
+                <div class="menu-item-wrapper menu-item-wrapper-lvl-1 js-toggler" data-toggler-group="menu-level-2"
                      data-toggler-action="open" data-toggler-id="{{ toggle_index_lvl1 }}">
                     <img src="img/data/m-55/cp01_v16.png" alt="" class="menu-picto" height="38" width="45">
                     <span class="menu-label menu-label-lvl-1">{{ keylevel1 }}</span>
                 </div>
-                <div class="menu-content menu-content-lvl-2 JS_item_toggler" data-toggler-group="menu-level-2"
+                <div class="menu-content menu-content-lvl-2 js-item-toggler" data-toggler-group="menu-level-2"
                      data-toggler-itemid="{{ toggle_index_lvl1 }}">
                     <div class="level-2-wrapper">
-                        <h3 class="menu-item-title-1 JS_toggler" data-toggler-group="menu-level-2"
+                        <h3 class="menu-item-title-1 js-toggler" data-toggler-group="menu-level-2"
                             data-toggler-action="close" data-toggler-id="{{ toggle_index_lvl1 }}">
                             <i class="icon-close-bracket menu-icon-navigation thin-icon"></i>
                             <span class="in-title">{{ keylevel1 }}</span>
@@ -20,7 +20,7 @@
                         <ul class="menu-level-2">
                             {% for keylevel2, level3 in level2 %}
                                 <li class="sub-menu-item">
-                                    <div class="menu-item-wrapper menu-item-wrapper-lvl-2 JS_toggler"
+                                    <div class="menu-item-wrapper menu-item-wrapper-lvl-2 js-toggler"
                                          data-toggler-group="menu-level-3-{{ toggle_index_lvl1 }}"
                                          data-toggler-action="open" data-toggler-id="{{ loop.index }}">
                                         <img src="img/data/m-55/cp01_v16.png" alt="" class="menu-picto" height="38"
@@ -30,11 +30,11 @@
                                             <i class="icon-open-bracket menu-icon-navigation thin-icon"></i>
                                         </span>
                                     </div>
-                                    <div class="menu-content menu-content-lvl-3 JS_item_toggler"
+                                    <div class="menu-content menu-content-lvl-3 js-item-toggler"
                                          data-toggler-group="menu-level-3-{{ toggle_index_lvl1 }}"
                                          data-toggler-itemid="{{ loop.index }}">
                                         <div class="menu-lvl-3-wrapper">
-                                            <h4 class="menu-item-title-2 JS_toggler" data-toggler-action="close"
+                                            <h4 class="menu-item-title-2 js-toggler" data-toggler-action="close"
                                                 data-toggler-id="{{ loop.index }}"
                                                 data-toggler-group="menu-level-3-{{ toggle_index_lvl1 }}">
                                                 <i class="icon-close-bracket menu-icon-navigation thin-icon"></i>

@@ -15,7 +15,7 @@ var rescrollTab = (function () {
     };
 
     var init = function () {
-        $('.JS_toggler[data-rescroll-tab]').on('click', rescroll);
+        $('.js-toggler[data-rescroll-tab]').on('click', rescroll);
     };
 
     return {

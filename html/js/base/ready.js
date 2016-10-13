@@ -1,6 +1,7 @@
 //var Utilst = require("../libs/utils6");
 var device = require("../base/basics");
 
+import jsToggler from 'js-toggler';
 var accordion = require("./../libs/accordions").default;
 var header_manager = require("../libs/header-manager").default;
 var search_manager = require("../libs/search-manager").default;
@@ -16,7 +17,7 @@ var scrollto = require("../libs/scrollto").default;
     header_manager.init();
     search_manager.init();
     slider_manager.init();
-    accordion();
+    jsToggler();
     form_validation.init();
     cookies_cnil.init();
 

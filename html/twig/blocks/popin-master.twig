@@ -1,13 +1,13 @@
 {% macro master(id, class, title, name) %}
-    <div class="popin {{ class }} JS_item_toggler" data-toggler-itemid="{{ id }}" data-toggler-group="popin">
-        <div class="mask JS_toggler" data-toggler-id="{{ id }}" data-toggler-group="popin"
+    <div class="popin {{ class }} js-item-toggler" data-toggler-itemid="{{ id }}" data-toggler-group="popin">
+        <div class="mask js-toggler" data-toggler-id="{{ id }}" data-toggler-group="popin"
              data-toggler-action="close"></div>
         <div class="content-scroll">
             <div class="content-wrapper">
                 <div class="popin-content">
                     <div class="popin-ground">
                         <div class="popin-title">
-                            <span class="popin-close JS_toggler" data-toggler-id="{{ id }}" data-toggler-group="popin"
+                            <span class="popin-close js-toggler" data-toggler-id="{{ id }}" data-toggler-group="popin"
                                   data-toggler-action="close"><i class="icon icon-close btn-close"></i></span>
                             {{ title }}
                         </div>
