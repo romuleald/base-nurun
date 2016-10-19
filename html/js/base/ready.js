@@ -2,7 +2,6 @@
 var device = require("../base/basics");
 
 import jsToggler from 'js-toggler';
-var accordion = require("./../libs/accordions").default;
 var header_manager = require("../libs/header-manager").default;
 var search_manager = require("../libs/search-manager").default;
 var slider_manager = require("../libs/slider-manager").default;

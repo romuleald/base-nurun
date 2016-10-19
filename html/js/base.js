@@ -24,5 +24,18 @@ module.init();
 require('./base/ready.js');
 require('./base/load.js');
 
+import nu6tils from 'nu6tils';
+import {ajax, getService} from 'nu6tils';
+console.info(nu6tils, ajax, getService);
+console.info(ajax);
+console.info(getService);
 
+nu6tils.ajax({url: './'}).done(function () {
+    console.info(arguments);
+});
+
+//debug come from webpack.config.*.js, conditions under debug will be removed on prod
+if (debug) {
+    console.info('lol');
+}
 /* END */

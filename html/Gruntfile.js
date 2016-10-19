@@ -61,8 +61,7 @@ module.exports = function (grunt) {
             prod: {
 
                 files: {
-                    'scripts/vendors.min.js': ['js/vendors/*.js'],
-                    'scripts/bundle.min.js': ['scripts/bundle.js']
+                    'scripts/vendors.min.js': ['js/vendors/*.js']
                 }
             }
         },
@@ -155,6 +154,6 @@ module.exports = function (grunt) {
     // Register tasks
     grunt.registerTask('s', ['sass:dev', 'cmq', 'postcss']);
     grunt.registerTask('fw', ['s', 'watch:css']);
-    grunt.registerTask('build', ['sass:prod', 'cmq', 'postcss', 'uglify']);
+    grunt.registerTask('build', ['sass:prod', 'cmq', 'postcss']);
     grunt.registerTask('default', ['watch']);
 };

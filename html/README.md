@@ -11,9 +11,11 @@
 4. `npm install webpack -g`
 
 # commandes pour développer
-1. `npm run wp -- --watch` (watch js)
-2. `grunt fw` (css)
-3. `grunt uglify` (build vendors.min.js)
+1. `npm run wpd` (compile & watch js via webpack)
+2. `npm run dev` (run `wpd` and `grunt fw`)
+3. `grunt fw` (compile & watch css)
+4. `npm run wp` (compile js (uglified) via webpack & grunt uglify)
+5. `npm run css` (sass:dev, combine media queries, postcss/autoprefixer)
 
 # commande avant mise en prod
-1. `grunt build` (build all.mins.css & vendors.min.js)
+1. `npm run build` (`run wp` & sass:prod, combine media queries, postcss/autoprefixer)

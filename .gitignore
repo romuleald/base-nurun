@@ -4,7 +4,7 @@
 vendor
 composer.lock
 
-node_modules
+html/node_modules
 npm-debug.log
 .sass-cache/
 
