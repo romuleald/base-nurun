@@ -154,6 +154,6 @@ module.exports = function (grunt) {
     // Register tasks
     grunt.registerTask('s', ['sass:dev', 'cmq', 'postcss']);
     grunt.registerTask('fw', ['s', 'watch:css']);
-    grunt.registerTask('build', ['sass:prod', 'cmq', 'postcss']);
+    grunt.registerTask('build', ['sass', 'cmq', 'postcss']);
     grunt.registerTask('default', ['watch']);
 };
