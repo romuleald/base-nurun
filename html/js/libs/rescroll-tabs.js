@@ -1,12 +1,13 @@
 /**
  * init
+ * todo refactor to a module
  */
-var scrollTo = require("../libs/scrollto").default;
-var bp = require("../base/basics").getDevice;
+let scrollTo = require("../libs/scrollto").default;
+let bp = require("../base/basics").getDevice;
 
-var rescrollTab = (function () {
+let rescrollTab = (function () {
 
-    var rescroll = function (e) {
+    let rescroll = function (e) {
         if (/t|m/.test(bp())) {
             setTimeout(() => {
                 scrollTo(this.offsetTop - $('#header').height());
@@ -14,7 +15,7 @@ var rescrollTab = (function () {
         }
     };
 
-    var init = function () {
+    let init = function () {
         $('.js-toggler[data-rescroll-tab]').on('click', rescroll);
     };
 

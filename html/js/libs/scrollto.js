@@ -1,10 +1,10 @@
-var scrollto = function (arg, paddingTop) {
-    var argument = arg;
-    var destination = 0;
-    var $scrollToThisElem;
-    var duration = 500;
-    var $trigger;
-    var headerHeight = $('#header').outerHeight();
+let scrollto = function (arg, paddingTop) {
+    let argument = arg;
+    let destination = 0;
+    let $scrollToThisElem;
+    let duration = 500;
+    let $trigger;
+    let headerHeight = $('#header').outerHeight();
 
     if (/click|scrollto/.test(arg.type)) {
         $trigger = $(this);
@@ -32,7 +32,7 @@ var scrollto = function (arg, paddingTop) {
                 destination = $scrollToThisElem.offset().top - headerHeight;
             }
             else {
-                pm.debug && console.error('No ID element found, selector was: #', argument);
+                debug && console.error('No ID element found, selector was: #', argument);
             }
         }
 
@@ -44,11 +44,11 @@ var scrollto = function (arg, paddingTop) {
             destination = $scrollToThisElem.offset().top;
         }
         else {
-            pm.debug && console.error('No jQuery element found, selector was: ', $scrollToThisElem.selector);
+            debug && console.error('No jQuery element found, selector was: ', $scrollToThisElem.selector);
         }
     }
     paddingTop = paddingTop ? paddingTop : 0;
-    var $scroller = $('html,body');
+    let $scroller = $('html,body');
     $scroller.animate(
         {
             scrollTop: destination - paddingTop
