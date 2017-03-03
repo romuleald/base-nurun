@@ -1,5 +1,6 @@
 /**
  * init
+ * example with module.parse()
  */
 var module = require("../core/module").default;
 

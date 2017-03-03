@@ -1,18 +1,19 @@
 /**
  * init
+ * todo refactor to a module
  */
-var scrollTo = require("../libs/scrollto").default;
-var bp = require("../base/basics").getDevice;
+let scrollTo = require("../libs/scrollto").default;
+let bp = require("../base/basics").getDevice;
 
-var rescrollInput = (function () {
+let rescrollInput = (function () {
 
-    var rescroll = function (e) {
+    let rescroll = function (e) {
         if (/t|m/.test(bp())) {
             scrollTo('search-bar-catalog');
         }
     };
 
-    var init = function () {
+    let init = function () {
         $('.js-rescroll-input').on('focus', rescroll);
     };
 
