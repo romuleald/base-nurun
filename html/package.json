@@ -6,8 +6,9 @@
   "scripts": {
     "dev": "npm run wpd | grunt fw",
     "wpd": "webpack --watch --config webpack.config.dev.js",
+    "wpdevbuild": "webpack --config webpack.config.dev.js",
     "wp": "grunt uglify && webpack --config webpack.config.prod.js",
-    "build": "npm run wp && grunt build",
+    "build": "npm run wpdevbuild && npm run wp && grunt build",
     "css": "grunt s",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
