@@ -10,7 +10,13 @@
         }
     };
 </script>
-<script src="scripts/vendors.min.js"></script>
+{% if debug %}
+    {% for file in listJsVendors %}
+        <script src="js/vendors/{{ file }}"></script>
+    {% endfor %}
+{% else %}
+    <script src="scripts/vendors.min.js"></script>
+{% endif %}
 <script src="scripts/bundle.js"></script>
 <script>
     // only for debug
