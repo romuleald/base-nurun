@@ -19,3 +19,6 @@
 
 # commande avant mise en prod
 1. `npm run build` (`run wp` & sass:prod, combine media queries, postcss/autoprefixer)
+
+# pour switcher du mode debug au mode prod (avec fichiers minifiés)
+1. rajouter `prod` dans l'url

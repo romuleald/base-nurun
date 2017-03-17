@@ -1,0 +1,34 @@
+{#button#}
+{% macro btn(type, class, text, icon) %}
+    <button type="{{ type }}" class="btn {{ class }}">
+        {{ text }}
+
+        {% if icon %}
+            <span class="{{ icon }}"></span>
+        {% endif %}
+    </button>
+{% endmacro %}
+
+{#link#}
+{% macro link(href, class, text, icon) %}
+    <a href="{{ href|default('#') }}" class="btn {{ class }}">
+        {{ text }}
+
+        {% if icon %}
+            <span class="{{ icon }}"></span>
+        {% endif %}
+    </a>
+{% endmacro %}
+
+{# anything <3 #}
+{% macro misc(tag, class, text, icon) %}
+    <{{ tag }} class="btn {{ class }}">
+        {{ text }}
+
+        {% if icon %}
+            <span class="{{ icon }}"></span>
+        {% endif %}
+    </{{ tag }}>
+{% endmacro %}
+
+
