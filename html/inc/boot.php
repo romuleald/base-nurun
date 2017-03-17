@@ -17,4 +17,4 @@ $twig->addFilter($remove_accent); // add this
 $dir    = 'js/vendors';
 $scanned_directory = array_diff(scandir($dir), array('..', '.'));
 $twig->addGlobal('listJsVendors', $scanned_directory);
-$twig->addGlobal('debug', isset($_GET['debug']));
+$twig->addGlobal('debug', !isset($_GET['prod']));
