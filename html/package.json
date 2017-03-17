@@ -14,12 +14,13 @@
   },
   "dependencies": {
     "js-toggler": "^1.1.0",
-    "nu6tils": "git+https://github.com/romuleald/nu6tils.git#1.0.1"
+    "nu6tils": "git+https://github.com/romuleald/nu6tils.git#1.1.0"
   },
   "devDependencies": {
     "autoprefixer": "^6.7.6",
     "babel-core": "^6.23.1",
     "babel-loader": "^6.3.2",
+    "babel-plugin-transform-es2015-for-of": "^6.23.0",
     "babel-plugin-transform-object-assign": "^6.22.0",
     "babel-preset-es2015": "^6.22.0",
     "cssnano": "^3.10.0",

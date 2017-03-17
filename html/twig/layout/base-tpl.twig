@@ -3,10 +3,10 @@
 <head>
     {% spaceless %}
         {% block head %}
-            {% if isprod %}
-                <link rel="stylesheet" href="styles/all.min.css">
-            {% else %}
+            {% if debug %}
                 <link rel="stylesheet" href="styles/all.css">
+            {% else %}
+                <link rel="stylesheet" href="styles/all.min.css">
             {% endif %}
             <title>{% block title %}{% endblock %}</title>
             <style type="text/css">
