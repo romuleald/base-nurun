@@ -1,28 +1,7 @@
-{#button#}
-{% macro btn(type, class, text, icon) %}
-    <button type="{{ type }}" class="btn {{ class }}">
-        {{ text }}
+{% macro trigger(tag, text, class, href, icon) %}
+    {% set tag = tag|default('a') %}
 
-        {% if icon %}
-            <span class="{{ icon }}"></span>
-        {% endif %}
-    </button>
-{% endmacro %}
-
-{#link#}
-{% macro link(href, class, text, icon) %}
-    <a href="{{ href|default('#') }}" class="btn {{ class }}">
-        {{ text }}
-
-        {% if icon %}
-            <span class="{{ icon }}"></span>
-        {% endif %}
-    </a>
-{% endmacro %}
-
-{# anything <3 #}
-{% macro misc(tag, class, text, icon) %}
-    <{{ tag }} class="btn {{ class }}">
+    <{{ tag }} class="btn {{ class }}" {% if tag == 'a' %} href="{{ href|default('#') }}" {% endif %}>
         {{ text }}
 
         {% if icon %}
@@ -30,5 +9,3 @@
         {% endif %}
     </{{ tag }}>
 {% endmacro %}
-
-

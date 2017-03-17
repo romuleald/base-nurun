@@ -179,18 +179,19 @@
                     <h1 class="tac title">Boutons/Liens</h1>
 
                     <h2>bouton</h2>
-                    {{ button.btn('button', '', 'bouton', '') }}
+                    {{ button.trigger('button', 'bouton') }}
 
                     <h2>lien</h2>
-                    {{ button.link('', '', 'lien', '') }}
+                    {{ button.trigger('', 'lien') }}
 
                     <h2>autre élément</h2>
-                    {{ button.misc('span', '', 'span avec un style de bouton', '') }}
+                    {{ button.trigger('span', 'span avec un style de bouton') }}
+
                     <h2>bouton avec icon à gauche</h2>
-                    {{ button.btn('submit', 'reversed', 'bouton submit', 'icon-arrow-left') }}
+                    {{ button.trigger('button', 'bouton', 'reversed', '', 'icon-arrow-left') }}
 
                     <h2>lien avec icon à droite</h2>
-                    {{ button.link('', '', 'lien', 'icon-arrow-right') }}
+                    {{ button.trigger('', 'lien', '', '', 'icon-arrow-right') }}
 
                     <hr>
                     <h1 class="tac title">pagination</h1>
