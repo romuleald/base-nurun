@@ -37,7 +37,11 @@ module.exports = function (config) {
         junitReporter: {
             outputFile: 'test-results.xml'
         },
-
+        plugins: [
+            'karma-phantomjs-launcher',
+            'karma-jasmine',
+            'karma-junit-reporter'
+        ],
 
         // web server port
         port: 9876,
