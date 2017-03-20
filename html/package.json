@@ -34,9 +34,12 @@
     "grunt-postcss": "^0.8.0",
     "grunt-sass": "^2.0.0",
     "jasmine-core": "^2.5.2",
+    "junit": "^1.4.9",
     "karma": "^1.5.0",
     "karma-chrome-launcher": "^2.0.0",
     "karma-jasmine": "^1.1.0",
+    "karma-junit-reporter": "^1.2.0",
+    "karma-phantomjs-launcher": "^1.0.4",
     "webpack": "^2.2.1"
   }
 }
