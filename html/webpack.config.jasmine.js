@@ -3,7 +3,7 @@ var webpack = require('webpack');
 
 module.exports = {
     entry: [
-        './js/test/test',
+        './js/test/index',
     ],
     plugins: [
         new webpack.DefinePlugin({
@@ -16,13 +16,10 @@ module.exports = {
         publicPath: ''
     },
     module: {
-        loaders: [
+        rules: [
             {
                 test: /\.js$/,
-                loader: 'babel',
-                query: {
-                    presets: ['es2015']
-                }
+                loader: 'babel-loader'
             }
         ]
     }

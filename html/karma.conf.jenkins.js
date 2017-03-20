@@ -12,10 +12,9 @@ module.exports = function (config) {
         // available frameworks: https://npmjs.org/browse/keyword/karma-adapter
         frameworks: ['jasmine'],
 
-
         // list of files / patterns to load in the browser
         files: [
-            'js/vendors/0_jquery.js',
+            'js/vendors/jquery.js',
             'js/test/test-bundle.js',
             // 'js/**/*.js'
         ],
@@ -30,6 +29,7 @@ module.exports = function (config) {
         preprocessors: {},
 
 
+
         // test results reporter to use
         // possible values: 'dots', 'progress'
         // available reporters: https://npmjs.org/browse/keyword/karma-reporter
@@ -39,6 +39,7 @@ module.exports = function (config) {
         },
         plugins: [
             'karma-phantomjs-launcher',
+            'karma-chrome-launcher',
             'karma-jasmine',
             'karma-junit-reporter'
         ],

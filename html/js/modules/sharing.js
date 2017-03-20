@@ -1,4 +1,4 @@
-let sharing = (function (elem, data) {
+let sharing = function (elem, data) {
 
     let ready = function () {
 
@@ -19,6 +19,6 @@ let sharing = (function (elem, data) {
         ready: ready
     }
 
-})();
+};
 
 export default sharing;
