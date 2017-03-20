@@ -1,7 +1,38 @@
-{% macro trigger(tag, text, class, href, icon) %}
+{#
+/**
+ * @trigger
+ * Default implementation:
+ * {{ button.trigger('tag trigger', 'text trigger', 'trigger-class', linkAttributes, 'icon-trigger') }}
+ *
+ * Available variables:
+ * - tag: field html tag, can be 'a', 'button', 'span', etc...
+ * - text: field content text
+ * - class: field class
+ * - linkAttributes: list of attributes for an <a> tag, see sample below
+ *  {% set linkAttributes = {
+        href: '00-index.php',
+        target: '_blank',
+        title: 'link to new window'
+    } %}
+ * - icon: field icon
+ */
+#}
+{% macro trigger(tag, text, class, linkAttributes, icon) %}
     {% set tag = tag|default('a') %}
 
-    <{{ tag }} class="btn {{ class }}" {% if tag == 'a' %} href="{{ href|default('#') }}" {% endif %}>
+    <{{ tag }} class="btn {{ class }}"
+        {% if tag == 'a' and linkAttributes == '' %}
+            href="#"
+        {% endif %}
+
+        {% for key, value in linkAttributes %}
+            {{ key }}="{{ value }}"
+
+            {% if key != 'href' %}
+                href="#"
+            {% endif %}
+        {% endfor %}
+    >
         {{ text }}
 
         {% if icon %}

@@ -191,7 +191,12 @@
                     {{ button.trigger('button', 'bouton', 'reversed', '', 'icon-arrow-left') }}
 
                     <h2>lien avec icon à droite</h2>
-                    {{ button.trigger('', 'lien', '', '', 'icon-arrow-right') }}
+                    {% set linkAttributes = {
+                        href: '00-index.php',
+                        target: '_blank',
+                        title: 'lien vers une nouvelle fenêtre'
+                    } %}
+                    {{ button.trigger('', 'lien', '', linkAttributes, 'icon-arrow-right') }}
 
                     <hr>
                     <h1 class="tac title">pagination</h1>
