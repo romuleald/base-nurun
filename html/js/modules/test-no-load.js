@@ -2,18 +2,16 @@
  * init
  * example with module.parse()
  */
-var module = require("../core/module").default;
 
-var moduleTest = (function () {
+let module = require("../core/module");
 
-    var ready = function (elem) {
+let moduleTest = function (elem, data) {
+    let ready = function () {
 
-        console.info(`le module test-no-load a été init au DOMReady via l'élément`, elem);
-
+        // console.info(`le module test-no-load a été init au DOMReady via l'élément`, elem);
         $(elem).on('click', function () {
-            elem.insertAdjacentHTML('afterEnd', `<h2 class="js-module" data-module="test-no-load">Test no-load</h2>`);
+            elem.insertAdjacentHTML('afterEnd', `<h2 class="js-module" data-module="test-no-load" data-module-test-no-load--id="${data.id}">Test no-load ${data.id}</h2>`);
             module.parse($('.js-module'));
-
         });
 
     };
@@ -22,6 +20,6 @@ var moduleTest = (function () {
         init: ready
     }
 
-})();
+};
 
 export default moduleTest;

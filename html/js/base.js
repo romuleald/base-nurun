@@ -1,8 +1,8 @@
 'use strict';
-let module = require("./core/module").default;
+let module = require("./core/module");
 import {getService} from 'nu6tils';
-getService.init(jsonendpoint);
 
+getService.init(window.jsonendpoint);
 module.init();
 
 //other ready/load actions
