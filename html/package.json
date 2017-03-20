@@ -12,7 +12,8 @@
     "css": "grunt s",
     "wpk": "webpack --config webpack.config.jasmine.js",
     "karma": "node ./node_modules/karma/bin/karma",
-    "test": "node ./node_modules/karma/bin/karma start"
+    "test": "node ./node_modules/karma/bin/karma start",
+    "jenkins": "node ./node_modules/karma/bin/karma start karma.conf.jenkins.js"
   },
   "dependencies": {
     "js-toggler": "^1.1.0",
