@@ -1,15 +1,16 @@
 {% macro master(id, class, title, name) %}
     <div class="popin {{ class }} js-item-toggler" data-toggler-itemid="{{ id }}" data-toggler-group="popin">
-        <div class="mask js-toggler" data-toggler-id="{{ id }}" data-toggler-group="popin"
-             data-toggler-action="close"></div>
+        <div class="mask js-toggler" data-toggler-id="{{ id }}" data-toggler-group="popin" data-toggler-action="close"></div>
         <div class="content-scroll">
             <div class="content-wrapper">
                 <div class="popin-content">
                     <div class="popin-ground">
                         <div class="popin-title">
-                            <span class="popin-close js-toggler" data-toggler-id="{{ id }}" data-toggler-group="popin"
-                                  data-toggler-action="close"><i class="icon icon-close btn-close"></i></span>
-                            {{ title }}
+                            <button class="popin-close js-toggler" data-toggler-id="{{ id }}" data-toggler-group="popin" data-toggler-action="close">
+                                <span class="accessibility">Fermer la popin</span>
+                                <span class="icon icon-close btn-close"></span>
+                            </button>
+                            <h1>{{ title }}</h1>
                         </div>
                         <div class="in-content">
                             {% include 'blocks/popin-' ~ name ~ '.twig' %}
@@ -19,5 +20,4 @@
             </div>
         </div>
     </div>
-
 {% endmacro %}
