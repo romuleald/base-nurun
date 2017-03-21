@@ -1,15 +1,16 @@
 /**
  * init
+ * module sample with init and load function
  */
 
-let skinSelect = function () {
-    
-    var ready = function (elem) {
+let skinSelect = function (elem, data) {
+
+    let ready = function () {
 
         let $elem = $(elem);
 
         $elem.select2();
-        
+
     };
 
     return {
