@@ -2,23 +2,40 @@
 /**
  * @input
  * Default implementation:
- * {{ form.input('text', '', 'input label', 'input-name') }}
+ * {{ form.input('text', 'input-name', 'input label', 'input-class', 'attrs', 'datas') }}
  *
  * Available variables:
  * - type: field type (text, password, file)
- * - class: field class
- * - label: field label
  * - name: field name and id
- * - required: field required status
+ * - label: field label
+ * - class: field class
+ * - attrs: field optionnal attributes like placeholder, required, checked, disabled, readonly...
+ *   {% set attrs = {
+ *       'required' : 'required',               => required="required"
+ *       'placeholder'  : 'field placeholder'   => placeholder="field placeholder"
+ *   } %}
+ * - datas: field datas attributes managing error messages, see example below
+ *   {% set datas = {
+ *       'error-required' : 'champ obligatoire',    => data-error-required="champ obligatoire"
+ *       'error-email'    : 'email invalide'        => data-error-email="email invalide"
+ *   } %}
  */
 #}
-{% macro input(type, class, label, name, required, requiredMsg, control, controlMsg, controlValue) %}
-    <div class="form-item form-item-input form-item-{{ type }} {% if(class) %}form-item-{{ class }}{% endif %}">
+{% macro input(type, name, label, class, attrs, datas) %}
+    <div class="form-item form-item-input form-item-{{ type }}">
         <label for="{{ name }}" class="form-label">
             {{ label|raw }}
-            {% if(required) %}<sup>*</sup>{% endif %}
+            {% if(attrs.required) %}<sup>*</sup>{% endif %}
         </label>
-        <input type="{{ type }}" name="{{ name }}" id="{{ name }}" class="form-input form-{{ type }}" {% if(required) %}required{% endif %}/>
+        <input type="{{ type }}" name="{{ name }}" id="{{ name }}" class="form-input form-{{ type }} {{ class }}"
+        {% for attrName, attrValue in attrs %}
+            {{ attrName }}="{{ attrValue }}"
+        {% endfor %}
+        {% for dataName, dataText in datas %}
+            data-{{ dataName }}="{{ dataText }}"
+        {% endfor %}
+        />
+        <span class="js-form-label-error form-label-error"></span>
     </div>
 {% endmacro %}
 
@@ -27,21 +44,37 @@
 /**
  * @checkbox
  * Default implementation:
- * {{ form.checkbox('checkbox label', 'checkbox-name') }}
+ * {{ form.checkbox('checkbox-name', 'checkbox label') }}
  *
  * Available variables:
- * - label: field label
  * - name: field name and id
- * - required: field required status
+ * - label: field label
+ * - attrs: field optionnal attributes like placeholder, required, checked, disabled, readonly...
+ *   {% set attrs = {
+ *       'required' : 'required',               => required="required"
+ *       'placeholder'  : 'field placeholder'   => placeholder="field placeholder"
+ *   } %}
+ * - datas: field datas attributes managing error messages, see example below
+ *   {% set datas = {
+ *       'error-required' : 'champ obligatoire'    => data-error-required="champ obligatoire"
+ *   } %}
  */
 #}
-{% macro checkbox(label, name, required, requiredMsg, control, controlMsg, controlValue) %}
+{% macro checkbox(name, label, attrs, datas) %}
     <div class="form-item form-item-checkbox">
-        <input type="checkbox" name="{{ name }}" id="{{ name }}" class="form-checkbox" {% if(required) %}required{% endif %}/>
+        <input type="checkbox" name="{{ name }}" id="{{ name }}" class="form-checkbox"
+        {% for attrName, attrValue in attrs %}
+            {{ attrName }}="{{ attrValue }}"
+        {% endfor %}
+        {% for dataName, dataText in datas %}
+            data-{{ dataName }}="{{ dataText }}"
+        {% endfor %}
+        />
         <label for="{{ name }}" class="form-label">
             {{ label|raw }}
-            {% if(required) %}<sup>*</sup>{% endif %}
+            {% if(attrs.required) %}<sup>*</sup>{% endif %}
         </label>
+        <span class="js-form-label-error form-label-error"></span>
     </div>
 {% endmacro %}
 
@@ -50,18 +83,33 @@
 /**
  * @radio
  * Default implementation:
- * {{ form.radio('radio label', 'radio-name', 'radio-id') }}
+ * {{ form.radio('radio-name', 'radio-id', 'radio label') }}
  *
  * Available variables:
- * - label: field label
  * - name: field name
  * - id: field id
- * - required: field required status
+ * - label: field label
+ * - attrs: field optionnal attributes like placeholder, required, checked, disabled, readonly...
+ *   {% set attrs = {
+ *       'required' : 'required',               => required="required"
+ *       'placeholder'  : 'field placeholder'   => placeholder="field placeholder"
+ *   } %}
+ * - datas: field datas attributes managing error messages, see example below
+ *   {% set datas = {
+ *       'error-required' : 'champ obligatoire'    => data-error-required="champ obligatoire"
+ *   } %}
  */
 #}
-{% macro radio(label, name, id, required, requiredMsg, control, controlMsg, controlValue) %}
+{% macro radio(name, id, label, attrs, datas) %}
     <div class="form-item form-item-radio">
-        <input type="radio" name="{{ name }}" id="{{ id }}" class="form-radio" {% if(required) %}required{% endif %}/>
+        <input type="radio" name="{{ name }}" id="{{ id }}" class="form-radio"
+        {% for attrName, attrValue in attrs %}
+            {{ attrName }}="{{ attrValue }}"
+        {% endfor %}
+        {% for dataName, dataText in datas %}
+            data-{{ dataName }}="{{ dataText }}"
+        {% endfor %}
+        />
         <label for="{{ id }}" class="form-label">
             {{ label|raw }}
         </label>
@@ -73,11 +121,11 @@
 /**
  * @select
  * Default implementation:
- * {{ form.select('select label', 'select-name', options) }}
+ * {{ form.select('select-name', 'select label', options) }}
  *
  * Available variables:
- * - label: field label
  * - name: field name and id
+ * - label: field label
  * - options: list of the select options with optgroup management, see sample below
  *   {% set options = {
  *       '': 'select an option',                => <option value="">select an option</option>
@@ -90,16 +138,31 @@
  *       2 : 'option 2',                        => <option value="2">option 2</option>
  *       3 : 'option 3'                         => <option value="3">option 3</option>
  *   } %}
- * - required: field required status
+ * - attrs: field optionnal attributes like placeholder, required, checked, disabled, readonly...
+ *   {% set attrs = {
+ *       'required' : 'required',               => required="required"
+ *       'placeholder'  : 'field placeholder'   => placeholder="field placeholder"
+ *   } %}
+ * - datas: field datas attributes managing error messages, see example below
+ *   {% set datas = {
+ *       'error-required' : 'champ obligatoire'    => data-error-required="champ obligatoire"
+ *   } %}
  */
 #}
-{% macro select(label, name, options, required, requiredMsg, control, controlMsg, controlValue) %}
+{% macro select(name, label, options, attrs, datas) %}
     <div class="form-item form-item-select">
         <label for="{{ name }}" class="form-label">
             {{ label|raw }}
-            {% if(required) %}<sup>*</sup>{% endif %}
+            {% if(attrs.required) %}<sup>*</sup>{% endif %}
         </label>
-        <select name="{{ name }}" id="{{ name }}" class="form-select" {% if(required) %}required{% endif %}>
+        <select name="{{ name }}" id="{{ name }}" class="form-select"
+        {% for attrName, attrValue in attrs %}
+            {{ attrName }}="{{ attrValue }}"
+        {% endfor %}
+        {% for dataName, dataText in datas %}
+            data-{{ dataName }}="{{ dataText }}"
+        {% endfor %}
+        >
             {% for value, option in options %}
                 {% if option is iterable %}
                     <optgroup label="{{ value }}">
@@ -112,6 +175,7 @@
                 {% endif %}
             {% endfor %}
         </select>
+        <span class="js-form-label-error form-label-error"></span>
     </div>
 {% endmacro %}
 
@@ -120,21 +184,37 @@
 /**
  * @textarea
  * Default implementation:
- * {{ form.textarea('textarea label', 'textarea-name') }}
+ * {{ form.textarea('textarea-name', 'textarea label') }}
  *
  * Available variables:
- * - label: field label
  * - name: field name and id
- * - required: field required status
+ * - label: field label
+ * - attrs: field optionnal attributes like placeholder, required, checked, disabled, readonly...
+ *   {% set attrs = {
+ *       'required' : 'required',               => required="required"
+ *       'placeholder'  : 'field placeholder'   => placeholder="field placeholder"
+ *   } %}
+ * - datas: field datas attributes managing error messages, see example below
+ *   {% set datas = {
+ *       'error-required' : 'champ obligatoire'    => data-error-required="champ obligatoire"
+ *   } %}
  */
 #}
-{% macro textarea(label, name, required, requiredMsg, control, controlMsg, controlValue) %}
+{% macro textarea(name, label, attrs, datas) %}
     <div class="form-item form-item-textarea">
         <label for="{{ name }}" class="form-label">
             {{ label|raw }}
-            {% if(required) %}<sup>*</sup>{% endif %}
+            {% if(attrs.required) %}<sup>*</sup>{% endif %}
         </label>
-        <textarea name="{{ name }}" id="{{ name }}" class="form-textarea" {% if(required) %}required{% endif %}></textarea>
+        <textarea name="{{ name }}" id="{{ name }}" class="form-textarea"
+        {% for attrName, attrValue in attrs %}
+            {{ attrName }}="{{ attrValue }}"
+        {% endfor %}
+        {% for dataName, dataText in datas %}
+            data-{{ dataName }}="{{ dataText }}"
+        {% endfor %}
+        ></textarea>
+        <span class="js-form-label-error form-label-error"></span>
     </div>
 {% endmacro %}
 
@@ -143,16 +223,16 @@
 /**
  * @button
  * Default implementation:
- * {{ form.button('button', 'button-class', 'button text') }}
+ * {{ form.button('button', 'button text', 'button-class') }}
  *
  * Available variables:
  * - type: button type (submit, reset, button)
- * - class: button class
  * - label: button text
+ * - class: button class
  */
 #}
-{% macro button(type, class, label) %}
-    <div class="form-item form-item-button form-item-{{ type }} {% if(class) %}form-item-{{ class }}{% endif %}">
+{% macro button(type, label, class) %}
+    <div class="form-item form-item-button form-item-{{ type }}">
         <button type="{{ type }}" class="form-button form-{{ type }} {{ class }}">{{ label|raw }}</button>
     </div>
 {% endmacro %}

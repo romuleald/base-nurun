@@ -345,23 +345,44 @@
                     <h1 class="tac title">Formulaire</h1>
                     {% import "components/form.twig" as form %}
 
-                    <form action="#" method="post" class="form-example js-module" data-module="form-validate" novalidate>
+                    <form action="#" method="post" class="form-example js-module" data-module="form-validate" novalidate
+                          data-error-required="champ obligatoire"
+                          data-error-email="email invalide"
+                          data-error-alpha="contient des caractères autres que l'alphabet"
+                          data-error-number="contient pas seulement des chiffres">
                         <fieldset>
                             <legend>Formulaire</legend>
                             <fieldset>
                                 <legend>Input</legend>
 
-                                {{ form.input('text', '', 'text', 'text', 'required') }}
-                                {{ form.input('password', '', 'password', 'password') }}
-                                {{ form.input('file', '', 'file', 'file') }}
+                                {% set attrs = {
+                                    'required': 'required',
+                                    'placeholder' : 'Entrez un texte'
+                                } %}
+                                {% set datas = {
+                                    'error-required' : 'champ text obligatoire'
+                                } %}
+                                {{ form.input('text', 'text', 'text', 'js-only-number', attrs, datas) }}
+
+                                {% set attrs = {
+                                    'required': 'required'
+                                } %}
+                                {% set datas = {
+                                    'error-required' : 'champ email obligatoire',
+                                    'error-email'    : 'champ email invalide'
+                                } %}
+                                {{ form.input('text', 'text', 'email', 'js-valid-email', attrs, datas) }}
+
+                                {{ form.input('password', 'password', 'password', '') }}
+                                {{ form.input('file', 'file', 'file', '') }}
                             </fieldset>
 
                             <fieldset>
                                 <legend>Checkbox</legend>
 
-                                {{ form.checkbox('checkbox 1', 'cb1') }}
-                                {{ form.checkbox('checkbox 2', 'cb2') }}
-                                {{ form.checkbox('checkbox 3', 'cb3') }}
+                                {{ form.checkbox('cb1', 'checkbox 1', {'required': 'required'}) }}
+                                {{ form.checkbox('cb2', 'checkbox 2') }}
+                                {{ form.checkbox('cb3', 'checkbox 3') }}
                             </fieldset>
 
                             <fieldset>
@@ -370,10 +391,11 @@
                                 <div class="form-item-wrapper form-item-radio-wrapper">
                                     <span class="form-label">Radio collection label<sup>*</sup></span>
                                     <div class="form-item-collection form-item-radio-collection">
-                                        {{ form.radio('radio 1', 'rd1', 'rd1-1', 'required') }}
-                                        {{ form.radio('radio 2', 'rd1', 'rd1-2', 'required') }}
-                                        {{ form.radio('radio 3', 'rd1', 'rd1-3', 'required') }}
+                                        {{ form.radio('rd1', 'rd1-1', 'radio 1', {'required': 'required'}) }}
+                                        {{ form.radio('rd1', 'rd1-2', 'radio 2', {'required': 'required'}) }}
+                                        {{ form.radio('rd1', 'rd1-3', 'radio 3', {'required': 'required'}) }}
                                     </div>
+                                    <span class="js-form-label-error form-label-error"></span>
                                 </div>
                             </fieldset>
 
@@ -391,57 +413,59 @@
                                     2 : 'option 2',
                                     3 : 'option 3'
                                 } %}
-                                {{ form.select('select', 'select', options, 'required') }}
+                                {{ form.select('select', 'select', options) }}
                             </fieldset>
 
                             <fieldset>
                                 <legend>Textarea</legend>
 
-                                {{ form.textarea('textarea', 'textarea', 'required') }}
+                                {{ form.textarea('textarea', 'textarea') }}
                             </fieldset>
 
                             <fieldset>
                                 <legend>Button</legend>
 
-                                {{ form.button('reset', '', 'reset') }}
-                                {{ form.button('submit', '', 'submit') }}
+                                {{ form.button('reset', 'reset') }}
+                                {{ form.button('submit', 'submit') }}
                             </fieldset>
                         </fieldset>
                     </form>
 
 
-                    <form action="#" class="js-module" data-module="form-validate" novalidate>
+                    <form action="#" class="js-module" data-module="form-validate" novalidate
+                          data-error-required="Champ requis"
+                          data-error-email="Email invalide"
+                          data-error-alpha="Contient des caractères autres que l'alphabet"
+                          data-error-number="Contient pas seulement que des des chiffres">
                         <fieldset>
                             <legend>Validation des champs</legend>
                             <p class="form-item">
                                 <label for="formtest1">form test 1 (required)</label>
-                                <input type="text" id="formtest1" required data-error-required="Champ requis">
+                                <input type="text" id="formtest1" required data-error-required="Champ form test 1 requis">
                                 <span class="js-form-label-error form-label-error"></span>
                             </p>
                             <p class="form-item">
                                 <label for="formtest2">form test 2 (email)</label>
-                                <input type="text" class="js-valid-email" id="formtest2" data-error-email="Email invalide">
+                                <input type="text" class="js-valid-email" id="formtest2">
                                 <span class="js-form-label-error form-label-error"></span>
                             </p>
                             <p class="form-item">
                                 <label for="formtest3">form test 3 (email required)</label>
-                                <input type="text" class="js-valid-email" id="formtest3" required data-error-required="Champ requis" data-error-email="Email invalide">
+                                <input type="text" class="js-valid-email" id="formtest3" required>
                                 <span class="js-form-label-error form-label-error"></span>
                             </p>
                             <p class="form-item">
                                 <label for="formtest4">form test 4 (alpha)</label>
-                                <input type="text" class="js-only-alpha" id="formtest4" required data-error-required="Champ requis" data-error-alpha="Contient des caractères autres que l'alphabet">
+                                <input type="text" class="js-only-alpha" id="formtest4" required>
                                 <span class="js-form-label-error form-label-error"></span>
                             </p>
                             <p class="form-item">
                                 <label for="formtest5">form test 5 (number)</label>
-                                <input type="text" class="js-only-number" id="formtest5" required data-error-required="Champ requis" data-error-number="Contient pas seulement que des des chiffres">
+                                <input type="text" class="js-only-number" id="formtest5" required>
                                 <span class="js-form-label-error form-label-error"></span>
                             </p>
                             <p>
-                                <label for="formtestsubmit" class="btn btn-main">
-                                    <input value="Valider" type="submit" id="formtestsubmit">
-                                </label>
+                                <input value="Valider" type="submit" id="formtestsubmit" class="btn btn-main">
                             </p>
                         </fieldset>
                         <fieldset>
