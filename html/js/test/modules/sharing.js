@@ -12,6 +12,5 @@ describe("test sharing module", function () {
         spyOn(window, 'open');
         elem.click();
         expect(window.open).toHaveBeenCalledWith(location.href + '#', 'share', jasmine.any(String));
-
     });
 });

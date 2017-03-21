@@ -2,7 +2,7 @@
  * init
  */
 
-let skinSelect = (function () {
+let skinSelect = function () {
     
     var ready = function (elem) {
 
@@ -16,6 +16,6 @@ let skinSelect = (function () {
         ready: ready
     }
 
-})();
+};
 
 export default skinSelect;

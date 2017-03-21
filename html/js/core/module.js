@@ -34,24 +34,24 @@ let webmodule = (function () {
 
     /**
      *
-     * @param modules {NodeList}
+     * @param allModules {NodeList}
      * @param loadFlag=false {Boolean}
      * @return {{ready: Array, load: Array}}
      */
-    let parseModules = function (modules, loadFlag = false) {
+    let parseModules = function (allModules, loadFlag = false) {
         let moduleReady = [];
         let modulesLoad = [];
-        for (let i = 0; modules[i]; i++) {
-            let DOMModule = modules[i];
+        for (let i = 0; allModules[i]; i++) {
+            let DOMModule = allModules[i];
             if (!regIsInit.test(DOMModule.className)) {
                 let _moduleNameSplit = DOMModule.getAttribute('data-module').split(' ');
                 for (let i = 0; i < _moduleNameSplit.length; i++) {
                     let _moduleName = _moduleNameSplit[i];
                     try {
                         let importModule = require('../modules/' + _moduleName).default;
-                        let module = _create(importModule, _moduleName, DOMModule);
-                        moduleReady.push({module: module, elem: DOMModule});
-                        loadFlag && modulesLoad.push({module: module, elem: DOMModule});
+                        let webModule = _create(importModule, _moduleName, DOMModule);
+                        moduleReady.push({module: webModule, elem: DOMModule});
+                        loadFlag && modulesLoad.push({module: webModule, elem: DOMModule});
                     }
                     catch (e) {
                         console.error(e);
