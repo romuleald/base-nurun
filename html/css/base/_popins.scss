@@ -1,0 +1,64 @@
+/* ==========================================================================
+   POPINS.SCSS
+   Default styles for toggler popins.
+   ========================================================================== */
+.popin {
+    bottom: 0;
+    left: 0;
+    position: fixed;
+    right: 0;
+    top: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    visibility: hidden;
+    z-index: -1;
+    transition: z-index 0ms 1s;
+
+    .mask {
+        background: rgba(0, 0, 0, 0);
+        bottom: 0;
+        left: 0;
+        position: absolute;
+        right: 0;
+        top: 0;
+        transition: background 500ms cubic-bezier(0, 0, 0, 0.99);
+        will-change: background;
+    }
+    .popin-ground {
+        overflow: auto;
+        position: relative;
+        background: #fff;
+        padding: 30px;
+        width: 500px;
+        max-width: 100%;
+        min-height: 20vh;
+        max-height: 100vh;
+        opacity: 0;
+        transition: all 700ms cubic-bezier(0, 0, 0, 0.99);
+        transform: scale(.95);
+        will-change: transform, opacity;
+    }
+    &.active {
+        visibility: visible;
+        z-index: 105;
+        transition: z-index 0ms;
+
+        .mask {
+            background: rgba(0, 0, 0, .8);
+        }
+        .popin-ground {
+            opacity: 1;
+            transition: all 500ms cubic-bezier(0, 0, 0, 0.99);
+            transform: scale(1);
+        }
+    }
+    .popin-close {
+        padding: 0;
+        position: absolute;
+        right: 10px;
+        top: 10px;
+        font-size: 1.8em;
+        color: #000;
+    }
+}

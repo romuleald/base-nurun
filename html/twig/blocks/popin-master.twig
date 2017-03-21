@@ -1,22 +1,26 @@
-{% macro master(id, class, title, name) %}
+{#
+ /**
+  * @master
+  * Default implementation:
+  * {{ popin.master('popin-id', 'popin-class', 'file-name') }}
+  *
+  * Available variables:
+  * - id: field id
+  * - class: field class
+  * - name: field file name content popin
+  */
+#}
+{% macro master(id, class, name) %}
     <div class="popin {{ class }} js-item-toggler" data-toggler-itemid="{{ id }}" data-toggler-group="popin">
         <div class="mask js-toggler" data-toggler-id="{{ id }}" data-toggler-group="popin" data-toggler-action="close"></div>
-        <div class="content-scroll">
-            <div class="content-wrapper">
-                <div class="popin-content">
-                    <div class="popin-ground">
-                        <div class="popin-title">
-                            <button class="popin-close js-toggler" data-toggler-id="{{ id }}" data-toggler-group="popin" data-toggler-action="close">
-                                <span class="accessibility">Fermer la popin</span>
-                                <span class="icon icon-close btn-close"></span>
-                            </button>
-                            <h1>{{ title }}</h1>
-                        </div>
-                        <div class="in-content">
-                            {% include 'blocks/popin-' ~ name ~ '.twig' %}
-                        </div>
-                    </div>
-                </div>
+        <div class="popin-ground">
+            <button class="popin-close js-toggler" data-toggler-id="{{ id }}" data-toggler-group="popin" data-toggler-action="close">
+                <span class="accessibility">Fermer la popin</span>
+                <span class="icon icon-close"></span>
+            </button>
+
+            <div class="popin-content">
+                {% include 'blocks/popin-' ~ name ~ '.twig' %}
             </div>
         </div>
     </div>
