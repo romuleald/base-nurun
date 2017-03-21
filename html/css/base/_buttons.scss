@@ -1,0 +1,19 @@
+/* ==========================================================================
+   BUTTONS.SCSS
+   Default styles for buttons.
+   ========================================================================== */
+.btn {
+    display: inline-flex;
+    align-items: center;
+
+    &.reversed {
+        flex-direction: row-reverse;
+    }
+    &.full {
+        width: 100%;
+        justify-content: space-between;
+    }
+    &.centered {
+        justify-content: center;
+    }
+}

@@ -2,12 +2,8 @@
    BUTTONS.SCSS
    Styles for buttons.
    ========================================================================== */
-.btn {
-    display: inline-flex;
-    padding: 0;
-    align-items: center;
-
-    &.reversed {
-        flex-direction: row-reverse;
-    }
+.style-1 {
+    background: firebrick;
+    color: white;
+    padding: 10px;
 }

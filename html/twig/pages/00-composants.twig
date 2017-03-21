@@ -179,16 +179,16 @@
                     <h1 class="tac title">Boutons/Liens</h1>
 
                     <h2>bouton</h2>
-                    {{ button.trigger('button', 'bouton') }}
+                    {{ button.trigger('button', 'bouton', 'style-1') }}
 
                     <h2>lien</h2>
-                    {{ button.trigger('', 'lien') }}
+                    {{ button.trigger('', 'lien', 'style-1') }}
 
                     <h2>autre élément</h2>
-                    {{ button.trigger('span', 'span avec un style de bouton') }}
+                    {{ button.trigger('span', 'span avec un style de bouton', 'style-1') }}
 
                     <h2>bouton avec icon à gauche</h2>
-                    {{ button.trigger('button', 'bouton', 'reversed', '', 'icon-arrow-left') }}
+                    {{ button.trigger('button', 'bouton', 'reversed style-1', '', 'icon-arrow-left') }}
 
                     <h2>lien avec icon à droite</h2>
                     {% set linkAttributes = {
@@ -196,7 +196,16 @@
                         target: '_blank',
                         title: 'lien vers une nouvelle fenêtre'
                     } %}
-                    {{ button.trigger('', 'lien', '', linkAttributes, 'icon-arrow-right') }}
+                    {{ button.trigger('', 'lien', 'style-1', linkAttributes, 'icon-arrow-right') }}
+
+                    <h2>lien centré avec largeur à 100%</h2>
+                    {{ button.trigger('', 'lien', 'full centered style-1') }}
+
+                    <h2>bouton centré avec icon à droite et largeur à 100%</h2>
+                    {{ button.trigger('button', 'bouton', 'full centered style-1', '', 'icon-arrow-right') }}
+
+                    <h2>bouton avec icon à droite et largeur à 100%</h2>
+                    {{ button.trigger('button', 'bouton', 'full style-1', '', 'icon-arrow-right') }}
 
                     <hr>
                     <h1 class="tac title">pagination</h1>
