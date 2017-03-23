@@ -206,86 +206,35 @@
 
                     <hr>
                     <h1 class="tac title">Boutons/Liens</h1>
-                    <h2>sur fond blanc / gris clair</h2>
 
-                    <p class="mbxxl">
-                        <a href="#" class="btn btn-main" title="#">voir tout</a>
-                        <span>
-                        Texte #202020, Roboto, Bold, Capitale, 13pt, 100pt d’interlettrage
-                        Contour 1px #707070
-                    </span>
-                    </p>
-                    <p class="mbxxl">
-                        <a href="#" class="btn btn-medium" title="#">trouver un magasin</a>
-                        <span>
-                        Texte #202020, Roboto, Bold, Capitale, 12pt, 100pt d’interlettrage
-                        Contour 1px #707070
-                    </span>
-                    </p>
+                    <h2>bouton</h2>
+                    {{ button.trigger('button', 'bouton', 'style-1') }}
 
-                    <p class="mbxxl">
-                        <a href="#" class="btn btn-medium decli-reverse" title="#">trouver un magasin</a>
-                        <span>
-                        Texte #202020, Roboto, Bold, Capitale, 12pt, 100pt d’interlettrage
-                        Contour 1px #707070
-                    </span>
-                    </p>
+                    <h2>lien</h2>
+                    {{ button.trigger('', 'lien', 'style-1') }}
 
+                    <h2>autre élément</h2>
+                    {{ button.trigger('span', 'span avec un style de bouton', 'style-1') }}
 
-                    <div class="mbxxl color-background-brand">
-                        <div class="ptxl pbxl plxl prxl dib">
-                            <a href="#" class="btn btn-main-full-reverse" title="#">testez-vous</a>
-                        </div>
-                        <span>
-                        Texte #fff, Roboto, Bold, Capitale,
-                        13pt, 100pt d’interlettrage
-                        Fond bouton #fff
-                    </span>
-                    </div>
+                    <h2>bouton avec icon à gauche</h2>
+                    {{ button.trigger('button', 'bouton', 'reversed style-1', '', 'icon-arrow-left') }}
 
-                    <p class="mbxxl">
-                        <a class="btn btn-medium decli" title="#">Accès pro
-                            <i class="icon-open-bracket thin-icon icon-end"></i>
-                        </a>
-                    </p>
+                    <h2>lien avec icon à droite</h2>
+                    {% set linkAttributes = {
+                        href: '00-index.php',
+                        target: '_blank',
+                        title: 'lien vers une nouvelle fenêtre'
+                    } %}
+                    {{ button.trigger('', 'lien', 'style-1', linkAttributes, 'icon-arrow-right') }}
 
+                    <h2>lien centré avec largeur à 100%</h2>
+                    {{ button.trigger('', 'lien', 'full centered style-1') }}
 
-                    <h2>sur fond orange / gris clair</h2>
-                    <p class="mbxxl">
-                        <a href="#" class="btn btn-brand" title="#">ajouter à ma liste</a>
-                        <span>
-                        Texte #fff, Roboto, Bold, Capitale, 12pt, 100pt d’interlettrage
-                        Fond bouton #ff9600
-                    </span>
-                    </p>
+                    <h2>bouton centré avec icon à droite et largeur à 100%</h2>
+                    {{ button.trigger('button', 'bouton', 'full centered style-1', '', 'icon-arrow-right') }}
 
-                    <p class="mbxxl">
-                        <a href="#" class="btn btn-main-bg-orange" title="#">voir tout</a>
-                        <span>
-                        Texte #202020, Roboto, Bold, Capitale, 13pt, 100pt d’interlettrage
-                        Contour 1px #707070
-                    </span>
-                    </p>
-                    <div class="mbxxl color-background-brand">
-                        <div class="ptxl pbxl plxl prxl dib">
-                            <a href="#" class="btn btn-main-full" title="#">testez-vous</a>
-                        </div>
-                        <span>
-                        Texte #fff, Roboto, Bold, Capitale,
-                        13pt, 100pt d’interlettrage
-                        Contour 1px #fff 60%
-                    </span>
-                    </div>
-
-                    <div class="mbxxl">
-                        <p class="btn-product-img-label text-b-1">Nouveauté</p>
-                    </div>
-                    <hr>
-                    <h1 class="tac title">éléments récurrents</h1>
-
-                    <div class="mbxxl">
-                        <p class="flag-new">Nouv<span class="item-1">.</span><span class="item-2">eauté</span></p>
-                    </div>
+                    <h2>bouton avec icon à droite et largeur à 100%</h2>
+                    {{ button.trigger('button', 'bouton', 'full style-1', '', 'icon-arrow-right') }}
 
                     <hr>
                     <h1 class="tac title">pagination</h1>
