@@ -103,6 +103,7 @@ var checkforms = function (e) {
             $formItemParent.find('.js-form-label-error').html('');
         }
         $formItemParent.toggleClass('form-item-error', elemError);
+        $element.toggleClass('form-error', elemError);
     });
 
     var $mandatory = $(".js-mandatory");

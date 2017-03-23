@@ -1,11 +1,122 @@
-.form-item-standalone {
-    input {
+// Custom checkbox & radios //
+/* Hide the original radios and checkboxes (but still accessible) */
+.skin-checkbox,
+.skin-radio {
+    position: absolute;
+    left: -9999px;
+}
 
-        font-size: pxtoem(18);
-        border: none;
-        border-top-left-radius: 35px;
-        border-bottom-left-radius: 35px;
-        padding: 22px 30px;
-        width: calc(100% - 20px);
-    }
+/* Base for label styling */
+.skin-checkbox + label,
+.skin-radio + label {
+    position: relative;
+    padding-left: 30px;
+    cursor: pointer;
+}
+
+/* Checkbox aspect */
+.skin-checkbox + label:before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 20px;
+    height: 20px;
+    border: 2px solid grey;
+    background-color: white;
+}
+
+/* Radio aspect */
+.skin-radio + label:before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    border: 2px solid grey;
+    background-color: white;
+}
+
+/* Checkbox checked mark aspect */
+.skin-checkbox + label:after {
+    content: '✓';
+    position: absolute;
+    top: 0;
+    left: 6px;
+    font-size: 14px;
+    line-height: 1.75;
+    color: grey;
+    opacity: 0;
+}
+
+/* Radio checked mark aspect */
+.skin-radio + label:after {
+    content: '';
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    background-color: grey;
+    opacity: 0;
+}
+
+/* Hover & Focus styles */
+.skin-checkbox:hover + label:before,
+.skin-radio:hover + label:before {
+    background-color: aliceblue;
+}
+.skin-checkbox:focus + label:before,
+.skin-radio:focus + label:before {
+    outline: 1px dotted black;
+}
+
+/* Checked styles */
+.skin-checkbox:checked + label:before,
+.skin-radio:checked + label:before {
+    border-color: grey;
+}
+.skin-checkbox:checked + label:after,
+.skin-radio:checked + label:after {
+    opacity: 1;
+}
+.skin-radio:checked + label:after {
+    color: grey;
+}
+
+/* Disabled styles */
+.skin-checkbox:disabled + label,
+.skin-radio:disabled + label {
+    cursor: default;
+}
+.skin-checkbox:disabled + label:before,
+.skin-radio:disabled + label:before {
+    border-color: lightgrey;
+    outline: none;
+    background-color: white;
+}
+.skin-checkbox:disabled + label:after {
+    color: lightgrey;
+}
+.skin-radio:disabled + label:after {
+    background-color: lightgrey;
+}
+
+/* Error styles */
+.skin-checkbox.form-error + label,
+.skin-radio.form-error + label {
+    color: red;
+}
+.skin-checkbox.form-error + label:before,
+.skin-radio.form-error + label:before {
+    border-color: red;
+}
+.skin-checkbox.form-error + label:after {
+    color: red;
+}
+.skin-radio.form-error + label:after {
+    background-color: red;
 }

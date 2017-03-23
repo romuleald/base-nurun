@@ -2,7 +2,7 @@
 /**
  * @input
  * Default implementation:
- * {{ form.input('text', 'input-name', 'input label', 'input-class', 'attrs', 'datas') }}
+ * {{ form.input('text', 'input-name', 'input label', 'input-class', attrs, datas) }}
  *
  * Available variables:
  * - type: field type (text, password, file)
@@ -44,11 +44,12 @@
 /**
  * @checkbox
  * Default implementation:
- * {{ form.checkbox('checkbox-name', 'checkbox label') }}
+ * {{ form.checkbox('checkbox-name', 'checkbox label', 'checkbox-class', attrs, datas) }}
  *
  * Available variables:
  * - name: field name and id
  * - label: field label
+ * - class: field class
  * - attrs: field optionnal attributes like placeholder, required, checked, disabled, readonly...
  *   {% set attrs = {
  *       'required' : 'required',               => required="required"
@@ -60,9 +61,9 @@
  *   } %}
  */
 #}
-{% macro checkbox(name, label, attrs, datas) %}
+{% macro checkbox(name, label, class, attrs, datas) %}
     <div class="form-item form-item-checkbox">
-        <input type="checkbox" name="{{ name }}" id="{{ name }}" class="form-checkbox"
+        <input type="checkbox" name="{{ name }}" id="{{ name }}" class="form-checkbox {{ class }}"
         {% for attrName, attrValue in attrs %}
             {{ attrName }}="{{ attrValue }}"
         {% endfor %}
@@ -83,12 +84,13 @@
 /**
  * @radio
  * Default implementation:
- * {{ form.radio('radio-name', 'radio-id', 'radio label') }}
+ * {{ form.radio('radio-name', 'radio-id', 'radio label', 'radio-class', attrs, datas) }}
  *
  * Available variables:
  * - name: field name
  * - id: field id
  * - label: field label
+ * - class: field class
  * - attrs: field optionnal attributes like placeholder, required, checked, disabled, readonly...
  *   {% set attrs = {
  *       'required' : 'required',               => required="required"
@@ -100,9 +102,9 @@
  *   } %}
  */
 #}
-{% macro radio(name, id, label, attrs, datas) %}
+{% macro radio(name, id, label, class, attrs, datas) %}
     <div class="form-item form-item-radio">
-        <input type="radio" name="{{ name }}" id="{{ id }}" class="form-radio"
+        <input type="radio" name="{{ name }}" id="{{ id }}" class="form-radio {{ class }}"
         {% for attrName, attrValue in attrs %}
             {{ attrName }}="{{ attrValue }}"
         {% endfor %}
@@ -121,7 +123,7 @@
 /**
  * @select
  * Default implementation:
- * {{ form.select('select-name', 'select label', options) }}
+ * {{ form.select('select-name', 'select label', options, 'select-class', attrs, datas) }}
  *
  * Available variables:
  * - name: field name and id
@@ -138,6 +140,7 @@
  *       2 : 'option 2',                        => <option value="2">option 2</option>
  *       3 : 'option 3'                         => <option value="3">option 3</option>
  *   } %}
+ * - class: field class
  * - attrs: field optionnal attributes like placeholder, required, checked, disabled, readonly...
  *   {% set attrs = {
  *       'required' : 'required',               => required="required"
@@ -149,13 +152,13 @@
  *   } %}
  */
 #}
-{% macro select(name, label, options, attrs, datas) %}
+{% macro select(name, label, options, class, attrs, datas) %}
     <div class="form-item form-item-select">
         <label for="{{ name }}" class="form-label">
             {{ label|raw }}
             {% if(attrs.required) %}<sup>*</sup>{% endif %}
         </label>
-        <select name="{{ name }}" id="{{ name }}" class="form-select"
+        <select name="{{ name }}" id="{{ name }}" class="form-select {{ class }}"
         {% for attrName, attrValue in attrs %}
             {{ attrName }}="{{ attrValue }}"
         {% endfor %}
@@ -184,11 +187,12 @@
 /**
  * @textarea
  * Default implementation:
- * {{ form.textarea('textarea-name', 'textarea label') }}
+ * {{ form.textarea('textarea-name', 'textarea label', 'textarea-class', attrs, datas) }}
  *
  * Available variables:
  * - name: field name and id
  * - label: field label
+ * - class: field class
  * - attrs: field optionnal attributes like placeholder, required, checked, disabled, readonly...
  *   {% set attrs = {
  *       'required' : 'required',               => required="required"
@@ -200,13 +204,13 @@
  *   } %}
  */
 #}
-{% macro textarea(name, label, attrs, datas) %}
+{% macro textarea(name, label, class, attrs, datas) %}
     <div class="form-item form-item-textarea">
         <label for="{{ name }}" class="form-label">
             {{ label|raw }}
             {% if(attrs.required) %}<sup>*</sup>{% endif %}
         </label>
-        <textarea name="{{ name }}" id="{{ name }}" class="form-textarea"
+        <textarea name="{{ name }}" id="{{ name }}" class="form-textarea {{ class }}"
         {% for attrName, attrValue in attrs %}
             {{ attrName }}="{{ attrValue }}"
         {% endfor %}
