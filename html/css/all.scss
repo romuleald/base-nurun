@@ -13,6 +13,7 @@ $mq-responsive: true;
 //@import 'vendors/owl.carousel';
 
 @import 'vendors-nurun/buttons';
+@import 'vendors-nurun/popins';
 
 @import 'utils/easings';
 @import 'utils/mediaqueries';
@@ -30,7 +31,6 @@ $mq-responsive: true;
 @import 'base/base';
 @import 'base/typography';
 @import 'base/colors';
-@import 'base/popins';
 
 @import 'components/buttons';
 @import 'components/dropdown';

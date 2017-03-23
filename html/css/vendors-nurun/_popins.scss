@@ -44,7 +44,7 @@
         z-index: 105;
         transition: z-index 0ms;
 
-        .mask {
+        &:not(.under) .mask {
             background: rgba(0, 0, 0, .8);
         }
         .popin-ground {

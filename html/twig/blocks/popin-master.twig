@@ -2,19 +2,20 @@
  /**
   * @master
   * Default implementation:
-  * {{ popin.master('popin-id', 'popin-class', 'file-name') }}
+  * {{ popin.master('popin-id', 'popin-class', 'file-name', 'popin') }}
   *
   * Available variables:
   * - id: field id
   * - class: field class
   * - name: field file name content popin
+  * - group: field data-toggler-group
   */
 #}
-{% macro master(id, class, name) %}
-    <div class="popin {{ class }} js-item-toggler" data-toggler-itemid="{{ id }}" data-toggler-group="popin">
-        <div class="mask js-toggler" data-toggler-id="{{ id }}" data-toggler-group="popin" data-toggler-action="close"></div>
+{% macro master(id, class, name, group) %}
+    <div class="popin {{ class }} js-item-toggler" data-toggler-itemid="{{ id }}" data-toggler-group="{{ group|default('popin') }}" data-toggler-type="popin">
+        <div class="mask js-toggler" data-toggler-id="{{ id }}" data-toggler-group="{{ group|default('popin') }}" data-toggler-action="close"></div>
         <div class="popin-ground">
-            <button class="popin-close js-toggler" data-toggler-id="{{ id }}" data-toggler-group="popin" data-toggler-action="close">
+            <button class="popin-close js-toggler" data-toggler-id="{{ id }}" data-toggler-group="{{ group|default('popin') }}" data-toggler-action="close">
                 <span class="accessibility">Fermer la popin</span>
                 <span class="icon icon-close"></span>
             </button>
