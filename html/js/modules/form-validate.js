@@ -106,7 +106,7 @@ var checkforms = function (e) {
         $element.toggleClass('form-error', elemError);
     });
 
-    var $mandatory = $(".js-mandatory");
+    var $mandatory = $form.find('.js-mandatory');
 
     $mandatory.removeClass('active');
 
