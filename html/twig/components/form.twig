@@ -5,7 +5,7 @@
  * {{ form.input('text', 'input-name', 'input label', 'input-class', attrs, datas) }}
  *
  * Available variables:
- * - type: field type (text, password, file)
+ * - type: field type (text, password, ...)
  * - name: field name and id
  * - label: field label
  * - class: field class
@@ -42,6 +42,62 @@
 
 {#
 /**
+ * @file
+ * Default implementation:
+ * {{ form.file('file-name', 'file label', 'file-class', attrs, datas) }}
+ *
+ * Available variables:
+ * - name: field name and id
+ * - label: field label
+ * - class: field class
+ * - attrs: field optionnal attributes like placeholder, required, checked, disabled, readonly...
+ *   {% set attrs = {
+ *       'required' : 'required',               => required="required"
+ *       'placeholder'  : 'field placeholder'   => placeholder="field placeholder"
+ *   } %}
+ * - datas: field datas attributes managing error messages, see example below
+ *   {% set datas = {
+ *       'error-required' : 'champ obligatoire',    => data-error-required="champ obligatoire"
+ *       'error-email'    : 'email invalide'        => data-error-email="email invalide"
+ *   } %}
+ */
+#}
+{% macro file(name, label, class, attrs, datas) %}
+    <div class="form-item form-item-file">
+        {% if('skin-file' not in class) %}
+        <label for="{{ name }}" class="form-label">
+            {{ label|raw }}
+            {% if(attrs.required) %}<sup>*</sup>{% endif %}
+        </label>
+        {% endif %}
+        <input type="file" name="{{ name }}" id="{{ name }}" class="form-file {{ class }}"
+        {% for attrName, attrValue in attrs %}
+            {{ attrName }}="{{ attrValue }}"
+        {% endfor %}
+        {% for dataName, dataText in datas %}
+            data-{{ dataName }}="{{ dataText }}"
+        {% endfor %}
+        />
+        {% if('skin-file' in class) %}
+        <label for="{{ name }}" class="form-label">
+            <span class="file-label">
+                {{ label|raw }}
+                {% if(attrs.required) %}<sup>*</sup>{% endif %}
+            </span>
+
+            <span class="file-input accessibility">
+                <span class="file-name"></span>
+                <span class="file-button"></span>
+            </span>
+        </label>
+        {% endif %}
+        <span class="js-form-label-error form-label-error"></span>
+    </div>
+{% endmacro %}
+
+
+{#
+/**
  * @checkbox
  * Default implementation:
  * {{ form.checkbox('checkbox-name', 'checkbox label', 'checkbox-class', attrs, datas) }}
@@ -71,7 +127,7 @@
             data-{{ dataName }}="{{ dataText }}"
         {% endfor %}
         />
-        <label for="{{ name }}" class="form-label">
+        <label for="{{ name }}" class="form-label" data-icon="✓">
             {{ label|raw }}
             {% if(attrs.required) %}<sup>*</sup>{% endif %}
         </label>

@@ -7,15 +7,15 @@
 }
 
 /* Base for label styling */
-.skin-checkbox + label,
-.skin-radio + label {
+.skin-checkbox + .form-label,
+.skin-radio + .form-label {
     position: relative;
     padding-left: 30px;
     cursor: pointer;
 }
 
 /* Checkbox aspect */
-.skin-checkbox + label:before {
+.skin-checkbox + .form-label:before {
     content: '';
     position: absolute;
     left: 0;
@@ -27,7 +27,7 @@
 }
 
 /* Radio aspect */
-.skin-radio + label:before {
+.skin-radio + .form-label:before {
     content: '';
     position: absolute;
     left: 0;
@@ -40,8 +40,8 @@
 }
 
 /* Checkbox checked mark aspect */
-.skin-checkbox + label:after {
-    content: '✓';
+.skin-checkbox + .form-label:after {
+    content: attr(data-icon);
     position: absolute;
     top: 0;
     left: 6px;
@@ -52,7 +52,7 @@
 }
 
 /* Radio checked mark aspect */
-.skin-radio + label:after {
+.skin-radio + .form-label:after {
     content: '';
     position: absolute;
     top: 5px;
@@ -64,59 +64,108 @@
     opacity: 0;
 }
 
-/* Hover & Focus styles */
-.skin-checkbox:hover + label:before,
-.skin-radio:hover + label:before {
+/* Hover styles */
+.skin-checkbox:hover + .form-label:before,
+.skin-radio:hover + .form-label:before {
     background-color: aliceblue;
 }
-.skin-checkbox:focus + label:before,
-.skin-radio:focus + label:before {
+
+/* Focus styles */
+.skin-checkbox:focus + .form-label:before,
+.skin-radio:focus + .form-label:before {
     outline: 1px dotted black;
 }
 
 /* Checked styles */
-.skin-checkbox:checked + label:before,
-.skin-radio:checked + label:before {
+.skin-checkbox:checked + .form-label:before,
+.skin-radio:checked + .form-label:before {
     border-color: grey;
 }
-.skin-checkbox:checked + label:after,
-.skin-radio:checked + label:after {
+.skin-checkbox:checked + .form-label:after,
+.skin-radio:checked + .form-label:after {
     opacity: 1;
 }
-.skin-radio:checked + label:after {
+.skin-radio:checked + .form-label:after {
     color: grey;
 }
 
 /* Disabled styles */
-.skin-checkbox:disabled + label,
-.skin-radio:disabled + label {
+.skin-checkbox:disabled + .form-label,
+.skin-radio:disabled + .form-label {
     cursor: default;
 }
-.skin-checkbox:disabled + label:before,
-.skin-radio:disabled + label:before {
+.skin-checkbox:disabled + .form-label:before,
+.skin-radio:disabled + .form-label:before {
     border-color: lightgrey;
     outline: none;
     background-color: white;
 }
-.skin-checkbox:disabled + label:after {
+.skin-checkbox:disabled + .form-label:after {
     color: lightgrey;
 }
-.skin-radio:disabled + label:after {
+.skin-radio:disabled + .form-label:after {
     background-color: lightgrey;
 }
 
 /* Error styles */
-.skin-checkbox.form-error + label,
-.skin-radio.form-error + label {
+.skin-checkbox.form-error + .form-label,
+.skin-radio.form-error + .form-label {
     color: red;
 }
-.skin-checkbox.form-error + label:before,
-.skin-radio.form-error + label:before {
+.skin-checkbox.form-error + .form-label:before,
+.skin-radio.form-error + .form-label:before {
     border-color: red;
 }
-.skin-checkbox.form-error + label:after {
+.skin-checkbox.form-error + .form-label:after {
     color: red;
 }
-.skin-radio.form-error + label:after {
+.skin-radio.form-error + .form-label:after {
     background-color: red;
+}
+
+// Custom file //
+.skin-file + .form-label {
+    cursor: pointer;
+    display: flex;
+}
+.file-input:not(.accessibility) {
+    display: flex;
+    position: relative;
+}
+.file-name {
+    display: block;
+    border: 1px solid;
+    padding: 5px;
+}
+.file-button {
+    background: white;
+    padding: 5px;
+    border: 1px solid;
+    margin-left: -1px;
+}
+
+/* Hover styles */
+
+
+/* Focus styles */
+.skin-file:focus + .form-label .file-input {
+    outline: 1px dotted black;
+}
+
+/* Disabled styles */
+.skin-file:disabled + .form-label {
+    cursor: default;
+
+    .file-name, .file-button {
+        border-color: lightgrey;
+        color: lightgrey;
+    }
+}
+
+/* Error styles */
+.skin-file.form-error + .form-label {
+    .file-name, .file-button {
+        border-color: red;
+        color: red;
+    }
 }

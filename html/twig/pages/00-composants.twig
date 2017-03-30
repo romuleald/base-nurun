@@ -53,8 +53,14 @@
         .form-example .form-item .form-label,
         .form-example .form-input,
         .form-example .form-select,
-        .form-example .form-textarea {
+        .form-example .form-textarea,
+        .form-example .file-label,
+        .form-example .file-name {
             width: 200px;
+        }
+
+        .form-example .skin-file + .form-label {
+            width: auto;
         }
 
         .form-example .form-item-checkbox,
@@ -319,7 +325,8 @@
                                 {{ form.input('text', 'text', 'email', 'js-valid-email', attrs, datas) }}
 
                                 {{ form.input('password', 'password', 'password') }}
-                                {{ form.input('file', 'file', 'file') }}
+                                {{ form.file('file1', 'file') }}
+                                {{ form.file('file2', 'skinned file', 'skin-file js-module', {'required':'required'}, {'button':'Choisissez un fichier', 'placeholder':'Aucun fichier choisi', 'module':'skin-file'}) }}
                             </fieldset>
 
                             <fieldset>
@@ -387,7 +394,7 @@
                                     2 : 'option 2',
                                     3 : 'option 3'
                                 } %}
-                                {{ form.select('select2', 'select 2 (skinned via select2)', options, 'js-module', '', {'module':'skin-select'}) }}
+                                {{ form.select('select2', 'select 2 (skinned via select2)', options, 'skin-select js-module', '', {'module':'skin-select'}) }}
                             </fieldset>
 
                             <fieldset>
