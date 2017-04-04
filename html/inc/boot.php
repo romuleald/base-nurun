@@ -9,6 +9,19 @@ $remove_accent = new Twig_SimpleFilter('remove_accent', function ($str) {
     return $str;
 });
 
+$dirFiles = array();
+if ($handle = opendir('twig/pages')) {
+    while (false !== ($file = readdir($handle))) {
+        $ext = pathinfo($file, PATHINFO_EXTENSION);
+        if ($ext == "twig") {
+            array_push($dirFiles, $file);
+        }
+    }
+    closedir($handle);
+}
+sort($dirFiles);
+
+
 
 $loader = new Twig_Loader_Filesystem('./twig/');
 $twig = new Twig_Environment($loader, array('debug' => true));
@@ -18,3 +31,4 @@ $dir    = 'js/vendors';
 $scanned_directory = array_diff(scandir($dir), array('..', '.'));
 $twig->addGlobal('listJsVendors', $scanned_directory);
 $twig->addGlobal('debug', !isset($_GET['prod']));
+$twig->addGlobal('listPage', $dirFiles);
