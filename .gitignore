@@ -10,6 +10,8 @@ npm-debug.log
 
 /scripts/
 html/scripts
+html/js/test/test-bundle.js
+
 html/styles/*.map
 html/styles/*.css
 

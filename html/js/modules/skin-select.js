@@ -5,7 +5,7 @@
 
 let skinSelect = function (elem, data) {
 
-    var ready = function () {
+    let ready = function () {
 
         let $elem = $(elem);
 
