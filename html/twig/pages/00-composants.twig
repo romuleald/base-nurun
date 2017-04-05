@@ -505,10 +505,11 @@
                                 réaliser un livre spécimen de polices de texte. Il n'a pas fait que </p>
                         </div>
                     </div>
-                    <div class="container">
-                        <span class="js-toggler" data-toggler-id="popin1" data-toggler-group="popin">LOL</span>
-                        {{ popin.master('popin1', 'test', 'title', 'test') }}
-                    </div>
+
+                    <h1 class="tac title">Popin</h1>
+                    <button class="js-toggler" data-toggler-id="popin-1" data-toggler-group="popin">Popin 1</button>
+                    {{ popin.master('popin-1', 'popin-example', 'example-1') }}
+                    {{ popin.master('popin-2', 'popin-example', 'example-2', 'popin-group') }}
                 </div>
             </div>
         </div>

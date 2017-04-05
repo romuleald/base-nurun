@@ -15,6 +15,7 @@ $mq-responsive: true;
 //vendor-nurun
 @import 'vendors-nurun/_slider-nurun';
 @import 'vendors-nurun/buttons';
+@import 'vendors-nurun/popins';
 
 @import 'utils/easings';
 @import 'utils/mediaqueries';
@@ -35,6 +36,7 @@ $mq-responsive: true;
 
 @import 'components/buttons';
 @import 'components/dropdown';
+@import 'components/popins';
 //@import 'components/transformicon';
 //@import 'components/carousels';
 //@import 'components/spinner';
