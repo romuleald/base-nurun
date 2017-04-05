@@ -10,8 +10,8 @@ var popinToggler = (function () {
     var $popin = $('[data-toggler-type="popin"]');
     var popinTab = [];
 
-    var openedPopin = function (elem) {
-        var $currentToggler = $(elem.target);
+    var openedPopin = function (e) {
+        var $currentToggler = $(e.target);
 
         if($currentToggler.data('toggler-type') == 'popin') {
             //when several popins opened, add class on below ones
@@ -23,8 +23,8 @@ var popinToggler = (function () {
         }
     };
 
-    var closedPopin = function (elem) {
-        if($(elem.target).data('toggler-type') == 'popin') {
+    var closedPopin = function (e) {
+        if($(e.target).data('toggler-type') == 'popin') {
             //remove tab last push
             popinTab.splice(-1,1);
 
