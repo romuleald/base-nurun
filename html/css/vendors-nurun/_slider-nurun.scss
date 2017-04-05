@@ -1,0 +1,21 @@
+/* ==========================================================================
+   slider-nurun.SCSS
+   Default styles for slider.
+   ========================================================================== */
+.slider-nurun {
+    margin: auto;
+    padding: 20px;
+    width: 600px;
+
+    .single-item {
+        div {
+            background: #fff;
+            color: #3498db;
+            font-size: 36px;
+            margin: 10px;
+            padding: 2%;
+            position: relative;
+            text-align: center;
+        }
+    }
+}

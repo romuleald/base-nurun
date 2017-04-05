@@ -9,9 +9,11 @@ $mq-responsive: true;
 @import 'config/_variables';
 
 @import 'normalize'; // boilerplate
-@import 'vendors/fw';
-//@import 'vendors/owl.carousel';
 
+@import 'vendors/_all-vendors';
+
+//vendor-nurun
+@import 'vendors-nurun/_slider-nurun';
 @import 'vendors-nurun/buttons';
 @import 'vendors-nurun/popins';
 
@@ -41,7 +43,11 @@ $mq-responsive: true;
 
 @import 'form/form';
 
-@import 'vendors/_select2';
+
+
+
+
+
 
 
 //@import 'modules/m31_liste-rubrique.scss';
