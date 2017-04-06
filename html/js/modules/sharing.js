@@ -1,3 +1,7 @@
+/**
+ * webmodule v1.2.1
+ */
+
 let sharing = function (elem, data) {
 
     let ready = function () {
