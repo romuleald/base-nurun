@@ -1,0 +1,66 @@
+{% extends "layout/base-tpl.twig" %}
+
+{#{% block title %}Index{% endblock %}#}
+{% block head %}
+    {{ parent() }}
+{% endblock %}
+{% block content %}
+    {% set id = "videoyoutube" %}
+    {% set id2 = "videodaily" %}
+    {% set id3 = "facebook" %}
+    {% set id4 = "vimeo" %}
+    <h1>Module youtube-video</h1>
+    <h2 class="important">
+        Youtube integration example.
+    </h2>
+    <p>Event play and stop are available. Do not save the element in <code>var</code>, it will be rewrite every time.
+    </p>
+    <p>An <code>id</code> is <strong>mandatory</strong></p>
+    <div class="columner mod-d-1-4">
+        <div class="col-item">
+            <h2>Youtube</h2>
+            <embed id="{{ id }}" class="js-module" data-module="video-social"
+                   src="http://www.youtube.com/embed/_Z1VzsE1GVg"></embed>
+            <div>
+                <a href="#play" onclick="$('#{{ id }}').trigger('play');return false;">play</a>
+                -
+                <a href="#stop" onclick="$('#{{ id }}').trigger('stop');return false;">stop</a>
+            </div>
+        </div>
+        <div class="col-item">
+            <h2>Dailymotion</h2>
+            <embed id="{{ id2 }}" class="js-module" data-module="video-social"
+                   src="//www.dailymotion.com/embed/video/x5demnd"></embed>
+            <div>
+                <a href="#play" onclick="$('#{{ id2 }}').trigger('play');return false;">play</a>
+                -
+                <a href="#stop" onclick="$('#{{ id2 }}').trigger('stop');return false;">stop</a>
+            </div>
+        </div>
+        <div class="col-item">
+            <h2>Facebook</h2>
+            <embed id="{{ id3 }}" class="js-module" data-module="video-social"
+                   src="https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2FMonsterYamahaTech3%2Fvideos%2F10155016929453046%2F&show_text=0&width=560"></embed>
+            <div>
+                <a href="#play" onclick="$('#{{ id3 }}').trigger('play');return false;">play</a>
+                -
+                <a href="#stop" onclick="$('#{{ id3 }}').trigger('stop');return false;">stop</a>
+            </div>
+        </div>
+        <div class="col-item">
+            <h2>Vimeo</h2>
+            <embed id="{{ id4 }}" class="js-module" data-module="video-social"
+                   src="https://player.vimeo.com/video/207610383"></embed>
+            <div>
+                <a href="#play" onclick="$('#{{ id4 }}').trigger('play');return false;">play</a>
+                -
+                <a href="#stop" onclick="$('#{{ id4 }}').trigger('stop');return false;">stop</a>
+            </div>
+        </div>
+    </div>
+    <h2>Code</h2>
+    <pre>&lt;embed id="{{ id }}" class="js-module" data-module="video-social" src="http://www.youtube.com/embed/_Z1VzsE1GVg">&lt;/embed>
+$('#{{ id }}').trigger('play');
+$('#{{ id }}').trigger('stop');
+    </pre>
+{% endblock %}
