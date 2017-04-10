@@ -1,0 +1,6 @@
+{% macro social(src, id, height, width) %}
+    <embed id="{{ id }}" class="js-module" data-module="video-social"
+           {% if height is defined %}height="height"{% endif %}
+            {% if width is defined %}width="height"{% endif %}
+           src="{{ src }}"></embed>
+{% endmacro %}
