@@ -18,7 +18,7 @@
   "dependencies": {
     "gettpl": "^1.1.0",
     "js-toggler": "^1.1.0",
-    "nu6tils": "git+https://github.com/romuleald/nu6tils.git#1.1.0",
+    "nu6tils": "git+https://github.com/romuleald/nu6tils.git#1.2.1",
     "prompt": "^1.0.0"
   },
   "devDependencies": {

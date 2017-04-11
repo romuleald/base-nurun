@@ -1,0 +1,193 @@
+{% extends "layout/base-tpl.twig" %}
+
+{% block title %}Index{% endblock %}
+{% block head %}
+    {{ parent() }}
+    <style type="text/css">
+        .tac.title {
+            background: #231f20;
+            padding: 10px 0;
+            color: #fff;
+        }
+
+        hr {
+            border-color: #555555;
+            margin: 50px 0;
+        }
+
+        .doc-code, code, pre {
+            font-family: Consolas, monospace;
+        }
+
+        code {
+            background: rgba(255, 255, 255, .4);
+        }
+
+        .doc-list {
+            box-shadow: 1px 1px 15px 0 rgba(0, 0, 0, 0.1);
+            padding: 20px;
+        }
+
+        .doc-list li {
+            margin: 15px 0;
+        }
+
+        .doc-list h3 {
+            margin: 0 0 10px 0;
+        }
+
+        .grid-exemple .grid-center {
+            background: lightcyan;
+        }
+
+        .accordion-item {
+            padding-right: 20px;
+            padding-left: 10px;
+            display: inline-block;
+        }
+
+        .square {
+            width: 75px;
+            height: 75px;
+            margin-right: 20px;
+            float: left;
+        }
+    </style>
+
+{% endblock %}
+{% block content %}
+
+    <div class="main-container">
+        <?php echo generateAllBlocksTitle('Début du site'); ?>
+
+        <div class="section section-small">
+            <div class="section-inner">
+                <div class="section-content">
+                    <h1>Package.json</h1>
+                    <p>Under package.json dependencies we have <a href="#togglers">js-toggler</a> and nu6tils.</p>
+                    <p>nu6tils (1.2.1) is a bundle of multiple script including</p>
+                    <ul>
+                        <li><a href="#ajax">ajax.js</a></li>
+                        <li><a href="#getService">get-service.js</a></li>
+                        <li><a href="#webModule">module.js</a></li>
+                    </ul>
+                    <h1>NPM</h1>
+                    <table>
+                        <tr>
+                            <th class="doc-code">name</th>
+                            <th class="doc-code">task</th>
+                            <th>description</th>
+                        </tr>
+                        <tr>
+                            <td class="doc-code">wp</td>
+                            <td class="doc-code">grunt uglify && webpack --config webpack.config.prod.js</td>
+                            <td>run grunt uglify + webpack prod mode (debug = false)</td>
+                        </tr>
+                        <tr>
+                            <td class="doc-code">wpd</td>
+                            <td class="doc-code">webpack --watch --config webpack.config.dev.js</td>
+                            <td>webpack dev mode (watch + debug = true)</td>
+                        </tr>
+                        <tr>
+                            <td class="doc-code">dev</td>
+                            <td class="doc-code">npm run wpd | grunt fw</td>
+                            <td>run webpack in dev mode + sass watcher via grunt</td>
+                        </tr>
+                        <tr>
+                            <td class="doc-code">wpdevbuild</td>
+                            <td class="doc-code">webpack --config webpack.config.dev.js</td>
+                            <td>webpack dev mode once (no watch, debug = true)</td>
+                        </tr>
+                        <tr>
+                            <td class="doc-code">build</td>
+                            <td class="doc-code">npm run wpdevbuild && npm run wp && grunt build</td>
+                            <td>run the build for VM (JS + CSS generated with both dev & prod config in separate
+                                files)
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="doc-code">css</td>
+                            <td class="doc-code">grunt s</td>
+                            <td>run SCSS compilation once</td>
+                        </tr>
+                        <tr>
+                            <td class="doc-code">wpk</td>
+                            <td class="doc-code">webpack --config webpack.config.jasmine.js</td>
+                            <td>run webpack to generate test bundle</td>
+                        </tr>
+                        <tr>
+                            <td class="doc-code">test</td>
+                            <td class="doc-code">node ./node_modules/karma/bin/karma start</td>
+                            <td>run test</td>
+                        </tr>
+                        <tr>
+                            <td class="doc-code">jenkins</td>
+                            <td class="doc-code">node ./node_modules/karma/bin/karma start karma.conf.jenkins.js</td>
+                            <td>run test with configuration to match jenkins</td>
+                        </tr>
+                    </table>
+                    <h1>webpack</h1>
+                    <p>Webpack is a javascript bundler.</p>
+                    <p>It allows to build all the JS files into a single file with an Babel.js ES6 compilator and a
+                        minificator.</p>
+                    <p>A <code>debug</code> variable is send to all the files used so any <code>debug &&
+                            console.info(debug)</code> will be removed for production via uglify.</p>
+                    <h1>Composants Javascript</h1>
+                    <h2 id="togglers">Togglers</h2>
+                    <p>Documentation can be found on the <a href="https://github.com/romuleald/toggler">github page</a>.
+                    </p>
+                    <h2 id="ajax">Ajax</h2>
+                    <p>Ajax include $.ajax from jQuery and accept 2 params, ajax(options, loader = false)</p>
+                    <p><code>options</code> must have an <code>url</code>
+                        and a <code>data</code> properties. More info on <a
+                                href="http://api.jquery.com/jquery.ajax/#jQuery-ajax-settings">jQuery</a>.</p>
+                    <p>ajax return the $.ajax method, so the promise can be reached this way:</p>
+                    <p>
+                        <code>var example = ajax(options);</code><br>
+                        <code>example.done(function(response){console.info(response)})</code>
+                    </p>
+                    <h2 id="getService">getService</h2>
+                    <p>getService call ajax so it return the same promise.</p>
+                    <p>getService accept 3 params getService(API_service, params, loader)</p>
+                    <ul>
+                        <li><code>API_service</code> the key get from an object</li>
+                        <li><code>params</code> the data send to the service</li>
+                        <li><code>loader</code> will show a loader. Default is <code>false</code></li>
+                    </ul>
+                    <p>It needs to be init <code>getService.init(window.jsonendpoint);</code> where jsonendpoint is an object with name of the service then the method (get, post, delete, etc…)</p>
+                    <h3>Example</h3>
+                    <pre>var jsonendpoint = {
+    get_test: {
+        url: '.',
+        method: Boolean,
+        processData: Boolean,
+        xhrFields: Boolean,
+        crossDomain: Boolean,
+        contentType: Boolean,
+    },
+    post_test: {
+        url: '.',
+        method: 'post'
+    }
+};</pre>
+                    <p>More info on <a href="http://api.jquery.com/jquery.ajax/#jQuery-ajax-settings">jQuery</a> doc.</p>
+                    <h2 id="webModule">(web) Modules</h2>
+                    <p>Module is a declarative script includer.</p>
+                    <p>An element with the <code>js-module</code> className and a <code>data-module="foo"</code> will
+                        match the file in <code>./js/modules/foo</code></p>
+                    <p>
+                        The file is a
+                        <a href="https://addyosmani.com/resources/essentialjsdesignpatterns/book/#modulepatternjavascript">module
+                            pattern</a> that return a
+                        <code>ready</code> or <code>init</code> and optional
+                        <code>load</code> method.</p>
+                    <p>The module include the element and specific data that match the module name.</p>
+                    <p>Inside the module, 2 vars are available, <code>elem</code> and <code>data</code>. So <code>data-foo--bar="thanks
+                            for the fish"</code>,
+                        <strong>data</strong> will be like this: <code>{foo: 'thanks for the fish'}</code></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}
