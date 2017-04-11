@@ -16,6 +16,7 @@
 3. `grunt fw` (compile & watch css)
 4. `npm run wp` (compile js (uglified) via webpack & grunt uglify)
 5. `npm run css` (sass:dev, combine media queries, postcss/autoprefixer)
+5. `npm run cm` (create module, a CLI interface to create (web)module)
 
 # commande avant mise en prod
 1. `npm run build` (`run wp` & sass:prod, combine media queries, postcss/autoprefixer)

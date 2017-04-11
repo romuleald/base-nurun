@@ -1,6 +1,6 @@
 {% extends "layout/base-tpl.twig" %}
 
-{% block title %}Index{% endblock %}
+{#{% block title %}Index{% endblock %}#}
 {% block head %}
     {{ parent() }}
 {% endblock %}
@@ -17,10 +17,13 @@
     <h2 class="js-module" data-module="test-no-load" data-module-test-no-load--id="2">Test no-load</h2>
     <h2 class="js-module" data-module="test-ajax" data-module-test-ajax--id="foo">Click to test <code>getService</code> function</h2>
 
-
+     {{ test }}
     <h2 style="color: darkgrey; border-bottom: 3px solid black;border-top: 3px solid black; padding: 15px 0;margin: 15px 0; font-style: italic; font-family: arial; ">Skin Select</h2>
 
     {#skin-select#}
     {% include 'modules/skin-select.twig' %}
+
+    <h2 style="color: darkgrey; border-bottom: 3px solid black;border-top: 3px solid black; padding: 15px 0;margin: 15px 0; font-style: italic; font-family: arial; ">Popin</h2>
+    <button>Open popin</button>
 
 {% endblock %}

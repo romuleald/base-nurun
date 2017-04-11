@@ -8,7 +8,7 @@
             {% else %}
                 <link rel="stylesheet" href="styles/all.min.css">
             {% endif %}
-            <title>{% block title %}{% endblock %}</title>
+            <title>{{ title }}</title>
             <style type="text/css">
                 .debug {
                     position: fixed;
@@ -75,12 +75,12 @@
 
 </head>
 <body>
+{% spaceless %}
+    {% block header %}
+        {% include 'layout/header.twig' %}
+    {% endblock %}
+{% endspaceless %}
 <div id="content">
-    {% spaceless %}
-        {% block header %}
-            {% include 'layout/header.twig' %}
-        {% endblock %}
-    {% endspaceless %}
     {#{% import 'components/icons.twig' %}#}
     {#{% import 'layout/breadcrumb.twig' as bread %}#}
     {% import 'components/buttons.twig' as button %}

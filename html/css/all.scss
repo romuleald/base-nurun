@@ -9,10 +9,14 @@ $mq-responsive: true;
 @import 'config/_variables';
 
 @import 'normalize'; // boilerplate
-@import 'vendors/fw';
-//@import 'vendors/owl.carousel';
 
+@import 'vendors/_all-vendors';
+
+//vendor-nurun
+@import 'vendors-nurun/layout';
+@import 'vendors-nurun/slider-nurun';
 @import 'vendors-nurun/buttons';
+@import 'vendors-nurun/popins';
 
 @import 'utils/easings';
 @import 'utils/mediaqueries';
@@ -33,13 +37,18 @@ $mq-responsive: true;
 
 @import 'components/buttons';
 @import 'components/dropdown';
+@import 'components/popins';
 //@import 'components/transformicon';
 //@import 'components/carousels';
 //@import 'components/spinner';
 
 @import 'form/form';
 
-@import 'vendors/_select2';
+
+
+
+
+
 
 
 //@import 'modules/m31_liste-rubrique.scss';

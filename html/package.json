@@ -10,11 +10,16 @@
     "wp": "grunt uglify && webpack --config webpack.config.prod.js",
     "build": "npm run wpdevbuild && npm run wp && grunt build",
     "css": "grunt s",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "wpk": "webpack --config webpack.config.jasmine.js",
+    "test": "node ./node_modules/karma/bin/karma start",
+    "jenkins": "node ./node_modules/karma/bin/karma start karma.conf.jenkins.js",
+    "cm": "node ./js/core/createmodule.js"
   },
   "dependencies": {
+    "gettpl": "^1.1.0",
     "js-toggler": "^1.1.0",
-    "nu6tils": "git+https://github.com/romuleald/nu6tils.git#1.2.1"
+    "nu6tils": "git+https://github.com/romuleald/nu6tils.git#1.2.1",
+    "prompt": "^1.0.0"
   },
   "devDependencies": {
     "autoprefixer": "^6.7.6",
@@ -30,6 +35,13 @@
     "grunt-contrib-watch": "^1.0.0",
     "grunt-postcss": "^0.8.0",
     "grunt-sass": "^2.0.0",
+    "jasmine-core": "^2.5.2",
+    "junit": "^1.4.9",
+    "karma": "^1.5.0",
+    "karma-chrome-launcher": "^2.0.0",
+    "karma-jasmine": "^1.1.0",
+    "karma-junit-reporter": "^1.2.0",
+    "karma-phantomjs-launcher": "^1.0.4",
     "webpack": "^2.2.1"
   }
 }

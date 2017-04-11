@@ -1,11 +1,12 @@
 /**
  * init
  * module sample with init and load function
+ * webmodule v1.2.1
  */
 
 let skinSelect = function (elem, data) {
 
-    var ready = function () {
+    let ready = function () {
 
         let $elem = $(elem);
 

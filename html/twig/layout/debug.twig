@@ -10,9 +10,9 @@
     </div>
     <div class="debug-nav">
         <ul>
-            <li><a href="00-composants.php">Composants</a></li>
-            <li><a href="00-modules.php">Modules</a></li>
-            <li><a href="00-structure.php">Structure</a></li>
+            {% for file in listPage %}
+                <li><a href="{{ file|replace({'.twig': '.php'}) }}">{{ file|replace({'.twig': ''}) }}</a></li>
+            {% endfor %}
         </ul>
     </div>
 </div>
@@ -81,6 +81,7 @@
         position: absolute;
         background-color: #FFF;
         padding: 5px;
+        white-space: pre;
     }
 
     .debug:active .debug-nav {

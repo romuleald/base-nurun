@@ -1,5 +1,6 @@
 /**
  * init
+ * webmodule v1.2.1
  */
 
 import {getService} from 'nu6tils';

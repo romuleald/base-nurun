@@ -1,0 +1,5 @@
+#Options +FollowSymLinks
+RewriteEngine On
+#exclude inc folder
+RewriteCond %{REQUEST_URI} !(.*/inc/.*)
+RewriteRule ^(.*\.php)$ includer.php?page=$1 [QSA]

@@ -1,6 +1,7 @@
 /**
  * init
  * example with module.parse()
+ * webmodule v1.2.1
  */
 
 import {webModule} from 'nu6tils';
