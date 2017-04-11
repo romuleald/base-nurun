@@ -35,14 +35,17 @@ var schema = {
     }
 };
 
-console.info('Name your file and it will create a JS (web)module, the unit test, a CSS (SCSS) and a Twig file');
+console.info('Name your file and it will create a');
+console.info('JS (web)module, the unit test, a CSS (SCSS) and a Twig file');
+console.info('New files will be automaticaly added to git');
 prompt.get(schema, function (err, result) {
 
     if (err) {
         return onErr(err);
     }
+    let files = [];
     for (let obj in result) {
-        if (/has/.test(obj) && result[obj] === 'false') {
+        if (/has/.test(obj) && result[obj] === false) {
             continue;
         }
         let path = 'js/modules';
@@ -50,7 +53,6 @@ prompt.get(schema, function (err, result) {
         let nameClean = name.replace(/-([a-z])/g, function (m, w) {
             return w.toUpperCase();
         });
-
         let ext = '.js';
         let text = '';
         if (obj === 'module_name') {
@@ -97,28 +99,30 @@ describe("test ${name} module", function () {
     <a href="#" class="js-module" data-module="${name}">${name}</a>
 {% endmacro %}`
         }
-
         let fileURI = `./${path}/${name}${ext}`,
             buffer = new Buffer(text);
-
         fs.open(fileURI, 'w', function (err, fd) {
             if (err) {
                 throw 'error opening file: ' + err;
             }
-
             fs.write(fd, buffer, 0, buffer.length, null, function (err) {
                 if (err) throw 'error writing file: ' + err;
                 fs.close(fd, function () {
-                    console.log(`file ${fileURI} written`);
+                    // console.log(`file ${fileURI} written`);
                 })
             });
         });
-
+        files.push(fileURI);
     }
+    let exec = require('child_process').exec;
+    let cmd = 'git add ' + files.join(' ');
+    console.info(cmd);
+
+    exec(cmd, function (error, stdout) {
+    });
 });
 
 function onErr(err) {
     console.log(err);
     return 1;
 }
-
