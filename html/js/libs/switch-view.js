@@ -30,7 +30,7 @@ var switchView = (function () {
         $switchList.on("click", listLayout);
 
         // default layout is list
-        if(!cookies.read('display')){
+        if (!cookies.read('display')) {
             listLayout();
         }
     };

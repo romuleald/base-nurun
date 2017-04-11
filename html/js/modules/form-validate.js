@@ -126,7 +126,7 @@ let formValidate = function (elem) {
     var ready = function () {
 
         $(elem).on('submit', checkforms);
-        
+
     };
 
     return {

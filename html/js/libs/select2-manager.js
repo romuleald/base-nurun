@@ -12,14 +12,14 @@ var select2manager = (function () {
         var placeholder = $select.data('placeholder');
         placeholder = placeholder ? placeholder : 'Type de produit';
 
-        var onChange = function(e) {
+        var onChange = function (e) {
             let dataOnchange = $select.data('onchange');
-            if(dataOnchange){
+            if (dataOnchange) {
                 let $input;
-                if(dataOnchange == true){
+                if (dataOnchange == true) {
                     $select.parents('form').submit();
                 }
-                else if($input = $('#' + dataOnchange)){
+                else if ($input = $('#' + dataOnchange)) {
                     $input.val(this.value).trigger('change');
                 }
             }

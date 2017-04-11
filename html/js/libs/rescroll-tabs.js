@@ -11,7 +11,7 @@ let rescrollTab = (function () {
         if (/t|m/.test(bp())) {
             setTimeout(() => {
                 scrollTo(this.offsetTop - $('#header').height());
-            },200);
+            }, 200);
         }
     };
 

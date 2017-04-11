@@ -1,6 +1,5 @@
 'use strict';
-// let module = require("./core/module");
-import {webModule,getService} from 'nu6tils';
+import {webModule, getService} from 'nu6tils';
 
 getService.init(window.jsonendpoint);
 webModule.init();

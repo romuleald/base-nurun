@@ -13,7 +13,7 @@ var popinToggler = (function () {
     var openedPopin = function (e) {
         var $currentToggler = $(e.target);
 
-        if($currentToggler.data('toggler-type') == 'popin') {
+        if ($currentToggler.data('toggler-type') == 'popin') {
             //when several popins opened, add class on below ones
             if (popinTab.length > 0) {
                 popinTab[popinTab.length - 1].addClass('under');
@@ -24,19 +24,19 @@ var popinToggler = (function () {
     };
 
     var closedPopin = function (e) {
-        if($(e.target).data('toggler-type') == 'popin') {
+        if ($(e.target).data('toggler-type') == 'popin') {
             //remove tab last push
-            popinTab.splice(-1,1);
+            popinTab.splice(-1, 1);
 
             //remove class on previous popin
-            if(popinTab.length > 0) {
+            if (popinTab.length > 0) {
                 popinTab[popinTab.length - 1].removeClass('under');
             }
         }
     };
 
     var escapeKey = function (e) {
-        if (popinTab.length > 0 && e.keyCode == 27) {
+        if (popinTab.length > 0 && e.keyCode === 27) {
             //close last open popin
             popinTab[popinTab.length - 1].find('.popin-close').trigger('click');
         }

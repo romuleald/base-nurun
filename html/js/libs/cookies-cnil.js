@@ -12,7 +12,7 @@ var initcookiescnil = (function () {
         $cookie_bar = $('#cookie-banner');
         $closed_bar = $('.JS_closed');
 
-        $closed_bar.on('click', function(){
+        $closed_bar.on('click', function () {
             $cookie_bar.removeClass('show');
         });
 
@@ -35,9 +35,6 @@ var initcookiescnil = (function () {
                 }
             });
         }
-
-
-
     };
 
     return {

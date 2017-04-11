@@ -19,7 +19,7 @@ allModuleName.forEach(function (_module, i) {
                 expect(typeof webModule.load).toBe('function');
             });
         }
-        else{
+        else {
             console.error('Module should return a function');
         }
     });

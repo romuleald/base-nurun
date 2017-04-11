@@ -1,4 +1,3 @@
-
 var CookieBanner = function (options) {
     'use strict';
 
@@ -26,7 +25,7 @@ var CookieBanner = function (options) {
 
         // unbind
         $(window).off('scroll', _onUserAccept);
-        $(window).off('click',_onUserAccept);
+        $(window).off('click', _onUserAccept);
         $elementClickAccept.off('click', _onUserAccept);
 
     };
@@ -56,10 +55,10 @@ var CookieBanner = function (options) {
             $elementClickAccept.on('click', _onUserAccept);
         }
         if (options.activation.scroll) {
-            $(window).on('scroll',_onUserAccept);
+            $(window).on('scroll', _onUserAccept);
         }
         if (options.activation.document_click) {
-            $(window).on('click',_onUserAccept);
+            $(window).on('click', _onUserAccept);
         }
     }
     else {

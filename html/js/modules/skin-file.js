@@ -13,10 +13,10 @@ let skinFile = function (elem) {
 
         // hide the original file input
         $elem.addClass('accessibility');
-        
+
         // get the input datas to create the fake file input only width css applied
         let elemDatas = $elem.data();
-        if($('body').css('background-color')!='transparent'){
+        if ($('body').css('background-color') != 'transparent') {
             elemParent.find('.file-name').prop('title', elemDatas.placeholder).html(elemDatas.placeholder);
             elemParent.find('.file-button').html(elemDatas.button);
         }
@@ -28,7 +28,7 @@ let skinFile = function (elem) {
             let fileValue;
             let fakeFile = $elem.parents('.form-item-file').find('.file-name');
 
-            if(this.files[0]) {
+            if (this.files[0]) {
                 fileValue = this.files[0].name;
             } else {
                 fileValue = $elem.data('placeholder');
