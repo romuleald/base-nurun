@@ -13,7 +13,8 @@ $mq-responsive: true;
 @import 'vendors/_all-vendors';
 
 //vendor-nurun
-@import 'vendors-nurun/_slider-nurun';
+@import 'vendors-nurun/layout';
+@import 'vendors-nurun/slider-nurun';
 @import 'vendors-nurun/buttons';
 @import 'vendors-nurun/popins';
 
