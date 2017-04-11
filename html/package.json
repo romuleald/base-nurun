@@ -12,12 +12,14 @@
     "css": "grunt s",
     "wpk": "webpack --config webpack.config.jasmine.js",
     "test": "node ./node_modules/karma/bin/karma start",
-    "jenkins": "node ./node_modules/karma/bin/karma start karma.conf.jenkins.js"
+    "jenkins": "node ./node_modules/karma/bin/karma start karma.conf.jenkins.js",
+    "cm": "node ./js/core/createmodule.js"
   },
   "dependencies": {
     "gettpl": "^1.1.0",
     "js-toggler": "^1.1.0",
-    "nu6tils": "git+https://github.com/romuleald/nu6tils.git#1.1.0"
+    "nu6tils": "git+https://github.com/romuleald/nu6tils.git#1.1.0",
+    "prompt": "^1.0.0"
   },
   "devDependencies": {
     "autoprefixer": "^6.7.6",
