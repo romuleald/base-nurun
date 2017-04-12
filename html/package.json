@@ -13,7 +13,7 @@
     "wpk": "webpack --config webpack.config.jasmine.js",
     "test": "node ./node_modules/karma/bin/karma start",
     "jenkins": "node ./node_modules/karma/bin/karma start karma.conf.jenkins.js",
-    "cm": "node ./js/core/createmodule.js"
+    "cm": "node ./js/core/generate-cli.js"
   },
   "dependencies": {
     "gettpl": "^1.1.0",
