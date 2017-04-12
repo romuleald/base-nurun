@@ -38,13 +38,13 @@ describe("test ${name} module", function () {
         has_css: {
             ext: '.scss',
             path: 'css/modules',
-            tpl: `.${name}{}`
+            tpl: `.module-${name}{}`
         },
         has_twig: {
             ext: '.twig',
             path: 'twig/modules',
             tpl: `{% macro ${nameClean}() %}
-    <a href="#" class="js-module" data-module="${name}">${name}</a>
+    <a href="#" class="js-module module-${name}" data-module="${name}">${name}</a>
 {% endmacro %}`
         }
 
